@@ -1,0 +1,1824 @@
+<!-- Design System -->
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KERNEL_ARCH // SKILLS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#bdf4ff",
+                    "on-error": "#690005",
+                    "surface-variant": "#353534",
+                    "secondary-container": "#00e3fd",
+                    "outline-variant": "#3b4b37",
+                    "background": "#131313",
+                    "secondary-fixed": "#9cf0ff",
+                    "surface": "#131313",
+                    "on-secondary": "#00363d",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "tertiary-container": "#e3d6ff",
+                    "on-secondary-fixed": "#001f24",
+                    "on-primary-fixed": "#002203",
+                    "outline": "#84967e",
+                    "primary": "#ebffe2",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface-variant": "#b9ccb2",
+                    "on-tertiary-fixed-variant": "#5400cc",
+                    "on-tertiary-fixed": "#22005d",
+                    "surface-dim": "#131313",
+                    "on-primary-fixed-variant": "#00530e",
+                    "on-tertiary": "#3a0092",
+                    "primary-fixed-dim": "#00e639",
+                    "tertiary-fixed": "#e9ddff",
+                    "surface-container-low": "#1c1b1b",
+                    "on-surface": "#e5e2e1",
+                    "on-secondary-container": "#00616d",
+                    "primary-fixed": "#72ff70",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#353534",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary": "#003907",
+                    "surface-tint": "#00e639",
+                    "tertiary": "#fdf7ff",
+                    "surface-bright": "#3a3939",
+                    "on-primary-container": "#007117",
+                    "surface-container": "#201f1f",
+                    "inverse-on-surface": "#313030",
+                    "secondary-fixed-dim": "#00daf3",
+                    "inverse-primary": "#006e16",
+                    "primary-container": "#00ff41",
+                    "on-background": "#e5e2e1",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary-container": "#7028f8",
+                    "tertiary-fixed-dim": "#cfbcff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0rem",
+                    "lg": "0rem",
+                    "xl": "0rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 255, 65, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            pointer-events: none;
+        }
+        .glass-terminal {
+            background: rgba(19, 19, 19, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .matrix-glow {
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#131313]/80 backdrop-blur-xl border-b border-[#3b4b37]/20 shadow-[0px_0px_60px_-15px_rgba(0,255,65,0.1)]">
+<div class="text-xl font-bold text-[#00FF41] font-['Space_Grotesk'] tracking-tighter uppercase">
+            KERNEL_ARCH
+        </div>
+<div class="hidden md:flex gap-8 items-center font-['Space_Grotesk'] tracking-tighter uppercase text-sm">
+<a class="text-[#e5e2e1]/60 hover:text-[#00FF41] transition-colors" href="#">ROOT</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#00FF41] transition-colors" href="#">WORK</a>
+<a class="text-[#00FF41] border-b-2 border-[#00FF41] pb-1" href="#">SKILLS</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#00FF41] transition-colors" href="#">LOGS</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00FF41]">terminal</span>
+<button class="bg-primary-container text-on-primary-container px-4 py-1 text-xs font-bold font-['Space_Grotesk'] uppercase hover:opacity-80 transition-all active:scale-95">
+                DOWNLOAD_CV
+            </button>
+</div>
+</nav>
+<div class="flex min-h-screen pt-20">
+<!-- Sidebar Navigation -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-80px)] w-64 fixed left-0 bg-[#1c1b1b] border-r border-[#3b4b37]/20 py-8 font-['Space_Grotesk'] text-sm uppercase tracking-widest">
+<div class="px-6 mb-8">
+<div class="text-[#00FF41] font-bold">SYS_ADMIN</div>
+<div class="text-[#e5e2e1]/40 text-[10px]">v2.4.0-stable</div>
+</div>
+<div class="flex-1 space-y-2">
+<div class="text-[#e5e2e1]/40 pl-5 hover:text-[#00FF41] cursor-pointer transition-all py-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm" data-icon="home">home</span> ROOT
+                </div>
+<div class="text-[#e5e2e1]/40 pl-5 hover:text-[#00FF41] cursor-pointer transition-all py-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm" data-icon="code">code</span> WORK
+                </div>
+<div class="text-[#00FF41] bg-[#2a2a2a] border-l-4 border-[#00FF41] pl-4 py-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span> SKILLS
+                </div>
+<div class="text-[#e5e2e1]/40 pl-5 hover:text-[#00FF41] cursor-pointer transition-all py-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-sm" data-icon="article">article</span> LOGS
+                </div>
+</div>
+<div class="mt-auto px-4 space-y-2">
+<button class="w-full py-3 bg-[#00FF41] text-[#003907] font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined" data-icon="chat">chat</span> INIT_CHATTEL
+                </button>
+<div class="pt-4 border-t border-[#3b4b37]/20 space-y-1">
+<div class="text-[#e5e2e1]/30 hover:text-[#00FF41] px-2 py-1 flex items-center gap-2 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-xs" data-icon="settings">settings</span> SETTINGS
+                    </div>
+<div class="text-[#e5e2e1]/30 hover:text-[#00FF41] px-2 py-1 flex items-center gap-2 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-xs" data-icon="logout">logout</span> LOGOUT
+                    </div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 lg:ml-64 p-6 md:p-10 bg-surface">
+<!-- Hero / BIOS Header -->
+<div class="mb-12 border-l-2 border-[#00FF41] pl-6 py-4">
+<h1 class="text-4xl md:text-6xl font-headline font-bold text-on-surface tracking-tighter uppercase mb-2">
+                    SYSTEM_CONF <span class="text-primary-container">/SKILLS</span>
+</h1>
+<p class="font-label text-sm text-[#00FF41]/60 tracking-widest">
+                    INITIALIZING KERNEL MODULES... [DONE] <br/>
+                    CHECKING INTERFACE LAYER... [STABLE]
+                </p>
+</div>
+<!-- Bento Grid of Skills -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Category: KERNEL_MODULES -->
+<div class="md:col-span-8 bg-surface-container border border-outline-variant/20 relative group">
+<!-- Terminal Header -->
+<div class="bg-surface-container-highest px-4 py-2 flex items-center justify-between">
+<span class="font-label text-[10px] tracking-widest text-on-surface/40 uppercase flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="w-2 h-2 rounded-full bg-[#FFB400]"></span>
+<span class="w-2 h-2 rounded-full bg-[#00FF41]"></span>
+                            MODULE_ID: KERNEL_MODULES
+                        </span>
+<span class="material-symbols-outlined text-xs text-on-surface/40" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="p-6">
+<h2 class="font-headline text-2xl text-primary-container mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="memory">memory</span> BACKEND_SYSTEM
+                        </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Skill Entry -->
+<div class="space-y-3">
+<div class="flex justify-between items-end font-label text-xs">
+<span class="text-on-surface uppercase"># Node.js</span>
+<span class="text-primary-container">STATUS: OK</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,255,65,0.5)]" style="width: 92%"></div>
+</div>
+</div>
+<!-- Skill Entry -->
+<div class="space-y-3">
+<div class="flex justify-between items-end font-label text-xs">
+<span class="text-on-surface uppercase"># Express</span>
+<span class="text-primary-container">STATUS: OK</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,255,65,0.5)]" style="width: 88%"></div>
+</div>
+</div>
+<!-- Skill Entry -->
+<div class="space-y-3">
+<div class="flex justify-between items-end font-label text-xs">
+<span class="text-on-surface uppercase"># Nest.js</span>
+<span class="text-primary-container">STATUS: OK</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,255,65,0.5)]" style="width: 75%"></div>
+</div>
+</div>
+<!-- Skill Entry -->
+<div class="space-y-3">
+<div class="flex justify-between items-end font-label text-xs">
+<span class="text-on-surface uppercase"># Typescript</span>
+<span class="text-primary-container">STATUS: OK</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,255,65,0.5)]" style="width: 95%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Category: DATA_PERSISTENCE (Vertical Window) -->
+<div class="md:col-span-4 bg-surface-container-low border border-outline-variant/20 flex flex-col">
+<div class="bg-surface-container-highest px-4 py-2 flex items-center">
+<span class="font-label text-[10px] tracking-widest text-on-surface/40 uppercase">DATA_PERSISTENCE.LOG</span>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container" data-icon="database">database</span>
+<div>
+<h3 class="font-headline text-lg uppercase text-on-surface">PostgreSQL</h3>
+<p class="text-xs font-body text-on-surface/40 mt-1">Relational integrity &amp; complex queries.</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-[10px] px-2 py-0.5 bg-surface-container-high text-primary-container font-label uppercase">High_Availability</span>
+<span class="text-[10px] px-2 py-0.5 bg-surface-container-high text-primary-container font-label uppercase">Indexing</span>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/10"></div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary-container" data-icon="storage">storage</span>
+<div>
+<h3 class="font-headline text-lg uppercase text-on-surface">MongoDB</h3>
+<p class="text-xs font-body text-on-surface/40 mt-1">Schema-less high speed data persistence.</p>
+<div class="mt-4 flex items-center gap-2">
+<span class="text-[10px] px-2 py-0.5 bg-surface-container-high text-primary-container font-label uppercase">Aggregation</span>
+<span class="text-[10px] px-2 py-0.5 bg-surface-container-high text-primary-container font-label uppercase">Scaling</span>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-6">
+<div class="text-[10px] font-label text-primary-container/40 animate-pulse">
+                                [SYSTEM] SYNCING DATABASE CLUSTERS... 100%
+                            </div>
+</div>
+</div>
+</div>
+<!-- Category: INTERFACE_LAYER -->
+<div class="md:col-span-5 bg-surface-container border border-outline-variant/20">
+<div class="bg-surface-container-highest px-4 py-2">
+<span class="font-label text-[10px] tracking-widest text-on-surface/40 uppercase">INTERFACE_LAYER.SYS</span>
+</div>
+<div class="p-6 space-y-6">
+<div class="flex justify-between items-center">
+<h2 class="font-headline text-xl text-on-surface uppercase">Frontend_Core</h2>
+<span class="text-xs font-label text-[#00FF41]">ACTIVE_UI_THREAD</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 border-l-2 border-primary-container">
+<span class="material-symbols-outlined text-primary-container" data-icon="web">web</span>
+<div class="flex-1">
+<div class="flex justify-between text-xs font-label">
+<span>REACT / NEXT.JS</span>
+<span>95%</span>
+</div>
+<div class="h-1 w-full bg-surface-variant mt-2">
+<div class="h-full bg-primary-container" style="width: 95%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 border-l-2 border-primary-container">
+<span class="material-symbols-outlined text-primary-container" data-icon="palette">palette</span>
+<div class="flex-1">
+<div class="flex justify-between text-xs font-label">
+<span>TAILWIND_CSS</span>
+<span>98%</span>
+</div>
+<div class="h-1 w-full bg-surface-variant mt-2">
+<div class="h-full bg-primary-container" style="width: 98%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-3 border-l-2 border-secondary">
+<span class="material-symbols-outlined text-secondary" data-icon="animation">animation</span>
+<div class="flex-1">
+<div class="flex justify-between text-xs font-label">
+<span>FRAMER_MOTION</span>
+<span>82%</span>
+</div>
+<div class="h-1 w-full bg-surface-variant mt-2">
+<div class="h-full bg-secondary" style="width: 82%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Category: AUTOMATION_CORE (Glass Panel) -->
+<div class="md:col-span-7 relative bg-surface-container/50 border border-[#00FF41]/10 backdrop-blur-md overflow-hidden">
+<!-- Glass Texture Overlay -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/5 to-transparent pointer-events-none"></div>
+<div class="bg-surface-container-highest px-4 py-2 border-b border-[#00FF41]/10">
+<span class="font-label text-[10px] tracking-widest text-primary-container uppercase">AUTOMATION_CORE // AI_RUNTIME</span>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-highest/50 border border-outline-variant/20">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="robot_2">robot_2</span>
+<h4 class="font-headline text-sm uppercase">AI Agents</h4>
+</div>
+<p class="text-xs text-on-surface/60 font-body mb-3">Custom LLM orchestrations using LangChain &amp; AutoGen frameworks.</p>
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-label text-[#00FF41]">OPTIMIZED</span>
+<span class="material-symbols-outlined text-xs text-[#00FF41]" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-highest/50 border border-outline-variant/20">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary-container" data-icon="hub">hub</span>
+<h4 class="font-headline text-sm uppercase">MCP Servers</h4>
+</div>
+<p class="text-xs text-on-surface/60 font-body mb-3">Building Model Context Protocol servers for enhanced LLM capabilities.</p>
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-label text-[#00FF41]">STABLE</span>
+<span class="material-symbols-outlined text-xs text-[#00FF41]" data-icon="verified_user">verified_user</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest/80 p-5 font-['Space_Grotesk'] text-[10px] text-primary-container/80 space-y-1 overflow-hidden">
+<div class="text-on-surface/40 mb-2">&gt;&gt; RUNNING N8N WORKFLOWS</div>
+<div>[09:24:01] GET /webhook/ai-agent-trigger</div>
+<div>[09:24:02] PARSING PAYLOAD...</div>
+<div>[09:24:03] LLM_RESPONSE: SUCCESS</div>
+<div>[09:24:04] SYNCING TO POSTGRES...</div>
+<div>[09:24:05] TRIGGERING SLACK_NOTIFY...</div>
+<div>[09:24:06] WORKFLOW COMPLETE.</div>
+<div class="pt-4 flex items-center gap-2">
+<div class="w-2 h-2 bg-primary-container animate-pulse"></div>
+<span>AWAITING NEXT EVENT_POLL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Stats Module -->
+<div class="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-container-low p-4 border border-outline-variant/10 text-center">
+<div class="text-[10px] font-label text-on-surface/40 uppercase mb-1">uptime</div>
+<div class="text-xl font-headline text-primary-container tracking-tighter">99.98%</div>
+</div>
+<div class="bg-surface-container-low p-4 border border-outline-variant/10 text-center">
+<div class="text-[10px] font-label text-on-surface/40 uppercase mb-1">commits</div>
+<div class="text-xl font-headline text-primary-container tracking-tighter">4,821</div>
+</div>
+<div class="bg-surface-container-low p-4 border border-outline-variant/10 text-center">
+<div class="text-[10px] font-label text-on-surface/40 uppercase mb-1">latency</div>
+<div class="text-xl font-headline text-primary-container tracking-tighter">14ms</div>
+</div>
+<div class="bg-surface-container-low p-4 border border-outline-variant/10 text-center">
+<div class="text-[10px] font-label text-on-surface/40 uppercase mb-1">entropy</div>
+<div class="text-xl font-headline text-primary-container tracking-tighter">SECURE</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- System Footer -->
+<footer class="w-full px-6 py-4 flex justify-between items-center mt-auto bg-[#131313] border-t border-[#3b4b37]/10">
+<div class="font-['Space_Grotesk'] text-[10px] uppercase opacity-50 text-[#00FF41]">
+            © 2024 KERNEL_OS - NO_RIGHTS_RESERVED
+        </div>
+<div class="flex gap-6 font-['Space_Grotesk'] text-[10px] uppercase">
+<a class="text-[#e5e2e1]/30 hover:text-[#00FF41] underline decoration-[#00FF41] transition-opacity" href="#">GITHUB</a>
+<a class="text-[#e5e2e1]/30 hover:text-[#00FF41] underline decoration-[#00FF41] transition-opacity" href="#">LINKEDIN</a>
+<a class="text-[#e5e2e1]/30 hover:text-[#00FF41] underline decoration-[#00FF41] transition-opacity" href="#">STACK_OVERFLOW</a>
+</div>
+</footer>
+<!-- Decorative Scanline Overlay -->
+<div class="scanline opacity-10"></div>
+</body></html>
+
+<!-- Technical Skills -->
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KERNEL_ARCH // WORK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#bdf4ff",
+                    "on-error": "#690005",
+                    "surface-variant": "#353534",
+                    "secondary-container": "#00e3fd",
+                    "outline-variant": "#3b4b37",
+                    "background": "#131313",
+                    "secondary-fixed": "#9cf0ff",
+                    "surface": "#131313",
+                    "on-secondary": "#00363d",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "tertiary-container": "#e3d6ff",
+                    "on-secondary-fixed": "#001f24",
+                    "on-primary-fixed": "#002203",
+                    "outline": "#84967e",
+                    "primary": "#ebffe2",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface-variant": "#b9ccb2",
+                    "on-tertiary-fixed-variant": "#5400cc",
+                    "on-tertiary-fixed": "#22005d",
+                    "surface-dim": "#131313",
+                    "on-primary-fixed-variant": "#00530e",
+                    "on-tertiary": "#3a0092",
+                    "primary-fixed-dim": "#00e639",
+                    "tertiary-fixed": "#e9ddff",
+                    "surface-container-low": "#1c1b1b",
+                    "on-surface": "#e5e2e1",
+                    "on-secondary-container": "#00616d",
+                    "primary-fixed": "#72ff70",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#353534",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary": "#003907",
+                    "surface-tint": "#00e639",
+                    "tertiary": "#fdf7ff",
+                    "surface-bright": "#3a3939",
+                    "on-primary-container": "#007117",
+                    "surface-container": "#201f1f",
+                    "inverse-on-surface": "#313030",
+                    "secondary-fixed-dim": "#00daf3",
+                    "inverse-primary": "#006e16",
+                    "primary-container": "#00ff41",
+                    "on-background": "#e5e2e1",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "on-tertiary-container": "#7028f8",
+                    "tertiary-fixed-dim": "#cfbcff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .terminal-header-dots::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #3b4b37;
+            border-radius: 50%;
+            box-shadow: 14px 0 0 #3b4b37, 28px 0 0 #3b4b37;
+            margin-right: 36px;
+        }
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 255, 65, 0.03);
+            position: absolute;
+            z-index: 100;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#131313]/80 backdrop-blur-xl border-b border-[#3b4b37]/20 shadow-[0px_0px_60px_-15px_rgba(0,255,65,0.1)]">
+<div class="text-xl font-bold text-[#00FF41] font-['Space_Grotesk'] tracking-tighter uppercase">KERNEL_ARCH</div>
+<div class="hidden md:flex items-center space-x-8 font-['Space_Grotesk'] tracking-tighter uppercase text-sm">
+<a class="text-[#e5e2e1]/60 hover:text-[#00FF41] transition-colors" href="#">ROOT</a>
+<a class="text-[#00FF41] border-b-2 border-[#00FF41] pb-1" href="#">WORK</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#00FF41] transition-colors" href="#">SKILLS</a>
+<a class="text-[#e5e2e1]/60 hover:text-[#00FF41] transition-colors" href="#">LOGS</a>
+</div>
+<div class="flex items-center space-x-6">
+<div class="hidden lg:flex space-x-4 text-[#00FF41]">
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#2a2a2a] p-1 transition-all">terminal</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#2a2a2a] p-1 transition-all">settings_ethernet</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-4 py-1.5 font-['Space_Grotesk'] font-bold text-xs tracking-widest uppercase hover:opacity-90 active:scale-95 transition-all">
+                DOWNLOAD_CV
+            </button>
+</div>
+</nav>
+<div class="flex min-h-screen pt-[72px]">
+<!-- Side Navigation Bar -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-72px)] w-64 fixed left-0 bg-[#1c1b1b] border-r border-[#3b4b37]/20 py-8 font-['Space_Grotesk'] text-sm uppercase tracking-widest">
+<div class="px-6 mb-10">
+<div class="flex items-center space-x-3 mb-2">
+<div class="w-8 h-8 bg-surface-container-highest border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[#00FF41] text-lg">person</span>
+</div>
+<div>
+<div class="text-[#00FF41] leading-none">SYS_ADMIN</div>
+<div class="text-[10px] text-on-surface/40 leading-none mt-1">v2.4.0-stable</div>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<a class="flex items-center text-[#e5e2e1]/40 pl-5 py-3 hover:text-[#00FF41] hover:bg-[#201f1f] transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined mr-3 text-sm">home</span> ROOT
+                </a>
+<a class="flex items-center text-[#00FF41] bg-[#2a2a2a] border-l-4 border-[#00FF41] pl-4 py-3 transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined mr-3 text-sm">code</span> WORK
+                </a>
+<a class="flex items-center text-[#e5e2e1]/40 pl-5 py-3 hover:text-[#00FF41] hover:bg-[#201f1f] transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined mr-3 text-sm">terminal</span> SKILLS
+                </a>
+<a class="flex items-center text-[#e5e2e1]/40 pl-5 py-3 hover:text-[#00FF41] hover:bg-[#201f1f] transition-all cursor-pointer" href="#">
+<span class="material-symbols-outlined mr-3 text-sm">article</span> LOGS
+                </a>
+</div>
+<div class="mt-auto px-5 space-y-1">
+<div class="bg-surface-container-low border border-outline-variant p-4 mb-6">
+<div class="text-[10px] text-on-surface/40 mb-2">NETWORK_STATUS</div>
+<div class="flex items-center text-[11px] text-primary-container">
+<span class="w-2 h-2 bg-primary-container rounded-full animate-pulse mr-2"></span>
+                        UPLINK_ESTABLISHED
+                    </div>
+</div>
+<button class="w-full bg-outline-variant/20 hover:bg-outline-variant/40 text-[#00FF41] py-3 text-xs tracking-[0.2em] transition-all mb-4">
+                    INIT_CHATTEL
+                </button>
+<a class="flex items-center text-[#e5e2e1]/30 hover:text-[#00FF41] py-2 transition-all" href="#">
+<span class="material-symbols-outlined mr-3 text-sm">settings</span> SETTINGS
+                </a>
+<a class="flex items-center text-[#e5e2e1]/30 hover:text-[#00FF41] py-2 transition-all" href="#">
+<span class="material-symbols-outlined mr-3 text-sm">logout</span> LOGOUT
+                </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 p-6 md:p-12">
+<!-- Header Section -->
+<header class="mb-16 max-w-4xl">
+<div class="inline-block px-3 py-1 bg-surface-container-high text-[#00FF41] font-['Space_Grotesk'] text-[10px] tracking-[0.3em] uppercase mb-6">
+                    /home/sys_admin/projects
+                </div>
+<h1 class="text-5xl md:text-7xl font-bold font-['Space_Grotesk'] tracking-tighter text-on-surface mb-6 uppercase">
+                    PROJ_RECAP_<span class="text-[#00FF41]">2024</span>
+</h1>
+<p class="text-on-surface-variant font-body text-lg leading-relaxed max-w-2xl">
+                    A collection of architected solutions specializing in low-level system management, high-concurrency infrastructure, and automated financial engines.
+                </p>
+</header>
+<!-- Projects Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-20">
+<!-- Project 001: Vendor Mgmt -->
+<div class="md:col-span-8 group relative bg-surface-container border border-outline-variant/20 hover:border-[#00FF41]/40 transition-all duration-500 overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-[#00FF41]/10"></div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-12">
+<div>
+<div class="text-[#00FF41] font-['Space_Grotesk'] text-xs tracking-widest mb-2 opacity-60">PROJECT_ID: 0x001</div>
+<h2 class="text-3xl font-bold font-['Space_Grotesk'] text-on-surface tracking-tighter">0x001_VENDOR_MGMT</h2>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-4xl group-hover:text-[#00FF41] transition-colors">folder_open</span>
+</div>
+<div class="grid md:grid-cols-2 gap-8 mb-8">
+<div class="space-y-4">
+<h4 class="text-[10px] text-on-surface/40 tracking-[0.2em] font-['Space_Grotesk'] uppercase">Architectural_Scope</h4>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">
+                                    Engineering a centralized platform for multi-entity vendor control. Designed hierarchical organizational structures supporting nested parent-child vendor relationships with inheritance logic.
+                                </p>
+</div>
+<div class="bg-surface-container-lowest p-4 border-l border-[#00FF41]/30">
+<pre class="text-[10px] text-[#00FF41]/70 font-mono leading-tight">{
+  "node": "VENDOR_ROOT",
+  "children": [
+    "LOGISTICS_01",
+    "PROCUREMENT_A",
+    "DIST_CENTER_ALPHA"
+  ],
+  "status": "OPERATIONAL"
+}
+                                </pre>
+</div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-high px-3 py-1 text-[10px] font-['Space_Grotesk'] text-on-surface/60">#_GOLANG</span>
+<span class="bg-surface-container-high px-3 py-1 text-[10px] font-['Space_Grotesk'] text-on-surface/60">#_POSTGRESQL</span>
+<span class="bg-surface-container-high px-3 py-1 text-[10px] font-['Space_Grotesk'] text-on-surface/60">#_GRPC</span>
+</div>
+</div>
+</div>
+<!-- Project 002: RBAC -->
+<div class="md:col-span-4 group bg-surface-container-low border border-outline-variant/20 hover:border-secondary/40 transition-all duration-500 flex flex-col">
+<div class="h-40 overflow-hidden grayscale group-hover:grayscale-0 transition-all">
+<img class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-all" data-alt="Abstract cyber security data flow with neon green circuit board patterns and digital nodes representing access control" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD76VnMU7X-LHaGLsfQ10fZQoysGGxXXRzQ1yRpZFxZqL3HojkSqnqvsY3PBAzlB6Yd5xn9mI07GhjdNOF7IpS1tu15EHwhdlkAMScTbJ39U6O2-rhUuFAqu0uZ_AZF-02qLPW_YHYcbHbtd5NZM5zKcyVt0DsY91H0JD9-JM9sIs3xbzZmVdU-hMGI6_FVc0wZo3iQnfV0vnVIVF3qN0xWjlQcqTL7W0SC8UnXae5GISNgOUaTtHQ_AvcfbO3YV9H7vhhdRK004s4"/>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="mb-6">
+<div class="text-secondary font-['Space_Grotesk'] text-[10px] tracking-widest mb-1 opacity-60">SECURITY_CORE</div>
+<h2 class="text-xl font-bold font-['Space_Grotesk'] text-on-surface tracking-tight">0x002_RBAC_SYSTEMS</h2>
+</div>
+<p class="text-on-surface-variant font-body text-xs leading-relaxed mb-6">
+                            Secure role-based access control with granular permission mapping. Implementation of JWT-based stateless auth and session management for enterprise-scale deployments.
+                        </p>
+<div class="mt-auto pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-[10px] font-['Space_Grotesk'] text-[#00FF41]">PROTECTED</span>
+<button class="material-symbols-outlined text-sm text-on-surface/40 hover:text-[#00FF41] transition-colors">arrow_right_alt</button>
+</div>
+</div>
+</div>
+<!-- Project 003: Billing Engine -->
+<div class="md:col-span-6 group bg-surface-container border border-outline-variant/20 hover:border-[#00FF41]/40 transition-all duration-500">
+<div class="p-1 bg-surface-container-highest flex items-center">
+<div class="terminal-header-dots ml-2"></div>
+<div class="text-[9px] text-on-surface/30 font-['Space_Grotesk'] uppercase tracking-[0.2em]">billing_engine.sh</div>
+</div>
+<div class="p-8">
+<div class="mb-6">
+<div class="text-[#00FF41] font-['Space_Grotesk'] text-xs tracking-widest mb-2 opacity-60">FIN_CORE</div>
+<h2 class="text-2xl font-bold font-['Space_Grotesk'] text-on-surface tracking-tighter">0x003_BILLING_ENGINES</h2>
+</div>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed mb-8">
+                            High-precision automated billing cycles processing 10k+ invoices/sec. Built with idempotency at the core to ensure zero-double-billing across distributed clusters.
+                        </p>
+<div class="flex items-center space-x-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 bg-[#2a2a2a] border border-[#3b4b37] flex items-center justify-center text-[10px] text-[#00FF41]">JS</div>
+<div class="w-8 h-8 bg-[#2a2a2a] border border-[#3b4b37] flex items-center justify-center text-[10px] text-[#00FF41]">RD</div>
+<div class="w-8 h-8 bg-[#2a2a2a] border border-[#3b4b37] flex items-center justify-center text-[10px] text-[#00FF41]">SQ</div>
+</div>
+<div class="text-[10px] text-on-surface/30 font-['Space_Grotesk'] uppercase">Stack_Dependencies</div>
+</div>
+</div>
+</div>
+<!-- Sys Log Sidebar (Integrated in Grid) -->
+<div class="md:col-span-6 bg-surface-container-lowest border border-outline-variant/20 p-8 font-['Space_Grotesk'] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-9xl">analytics</span>
+</div>
+<div class="flex items-center space-x-3 mb-8">
+<span class="material-symbols-outlined text-[#00FF41] animate-pulse">data_exploration</span>
+<h3 class="text-xs font-bold tracking-[0.4em] text-on-surface/40 uppercase">LIVE_SYSTEM_TELEMETRY</h3>
+</div>
+<div class="space-y-4 text-[11px]">
+<div class="flex justify-between items-center border-b border-outline-variant/10 pb-2">
+<span class="text-on-surface/60">ARCH_UPTIME</span>
+<span class="text-[#00FF41]">99.982%</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant/10 pb-2">
+<span class="text-on-surface/60">DEPLOY_CYCLES</span>
+<span class="text-[#00FF41]">1,248</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant/10 pb-2">
+<span class="text-on-surface/60">THREAT_LEVEL</span>
+<span class="text-secondary">MINIMAL</span>
+</div>
+<div class="flex justify-between items-center border-b border-outline-variant/10 pb-2">
+<span class="text-on-surface/60">KERNEL_VER</span>
+<span class="text-on-surface/40 italic">v5.18.4-rt</span>
+</div>
+</div>
+<div class="mt-8 bg-[#00FF41]/5 p-4 border border-[#00FF41]/20">
+<div class="text-[10px] text-[#00FF41] mb-2 uppercase">Current_Active_Task:</div>
+<div class="text-sm text-on-surface font-bold tracking-tight">OPTIMIZING_DATA_REPLICATION_LATENCY</div>
+</div>
+</div>
+</div>
+<!-- Experience / More Section (Asymmetric) -->
+<section class="mt-32 max-w-5xl">
+<div class="flex flex-col md:flex-row md:items-end md:space-x-12 mb-16">
+<div class="text-8xl font-bold font-['Space_Grotesk'] text-outline-variant/10 select-none">SYSTEMS</div>
+<div class="pb-4">
+<h3 class="text-2xl font-bold font-['Space_Grotesk'] text-[#00FF41] uppercase tracking-tighter mb-4">Core Competencies</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="border-l-2 border-[#00FF41] pl-4">
+<div class="text-[10px] text-on-surface/40 uppercase tracking-widest">Distributed</div>
+<div class="text-sm font-bold">KUBERNETES</div>
+</div>
+<div class="border-l-2 border-[#00FF41] pl-4">
+<div class="text-[10px] text-on-surface/40 uppercase tracking-widest">Real-time</div>
+<div class="text-sm font-bold">WEBSOCKETS</div>
+</div>
+<div class="border-l-2 border-[#00FF41] pl-4">
+<div class="text-[10px] text-on-surface/40 uppercase tracking-widest">Security</div>
+<div class="text-sm font-bold">OAUTH2/SAMl</div>
+</div>
+<div class="border-l-2 border-[#00FF41] pl-4">
+<div class="text-[10px] text-on-surface/40 uppercase tracking-widest">Message</div>
+<div class="text-sm font-bold">RABBITMQ</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer / System Log -->
+<footer class="w-full px-6 py-4 flex flex-col md:flex-row justify-between items-center mt-auto bg-[#131313] border-t border-[#3b4b37]/10 font-['Space_Grotesk'] text-[10px] uppercase opacity-100">
+<div class="flex items-center space-x-4 mb-4 md:mb-0">
+<span class="text-on-surface/30">© 2024 KERNEL_OS - NO_RIGHTS_RESERVED</span>
+<div class="hidden md:flex space-x-2 text-[#00FF41]/40">
+<span>[ PID: 4852 ]</span>
+<span>[ MEM: 4.2GB ]</span>
+<span>[ CPU: 12% ]</span>
+</div>
+</div>
+<div class="flex space-x-8">
+<a class="text-on-surface/30 hover:text-[#00FF41] hover:underline transition-all" href="#">GITHUB</a>
+<a class="text-on-surface/30 hover:text-[#00FF41] hover:underline transition-all" href="#">LINKEDIN</a>
+<a class="text-on-surface/30 hover:text-[#00FF41] hover:underline transition-all" href="#">STACK_OVERFLOW</a>
+</div>
+</footer>
+<!-- Terminal Overlay Decor (Subtle) -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none opacity-[0.03] z-[100] bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+<div class="scanline top-1/4"></div>
+</body></html>
+
+<!-- Work Experience -->
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#131313",
+                    "outline-variant": "#3b4b37",
+                    "on-tertiary-fixed-variant": "#5400cc",
+                    "surface-container-highest": "#353534",
+                    "on-error": "#690005",
+                    "surface-container-low": "#1c1b1b",
+                    "secondary-fixed-dim": "#00daf3",
+                    "secondary": "#bdf4ff",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-variant": "#353534",
+                    "on-primary-fixed-variant": "#00530e",
+                    "secondary-container": "#00e3fd",
+                    "secondary-fixed": "#9cf0ff",
+                    "surface-tint": "#00e639",
+                    "on-surface-variant": "#b9ccb2",
+                    "primary-container": "#00ff41",
+                    "primary-fixed": "#72ff70",
+                    "primary": "#ebffe2",
+                    "on-primary-fixed": "#002203",
+                    "error": "#ffb4ab",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-container": "#7028f8",
+                    "on-tertiary-fixed": "#22005d",
+                    "tertiary-fixed": "#e9ddff",
+                    "primary-fixed-dim": "#00e639",
+                    "inverse-on-surface": "#313030",
+                    "on-tertiary": "#3a0092",
+                    "tertiary-container": "#e3d6ff",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-container": "#007117",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "on-secondary": "#00363d",
+                    "tertiary-fixed-dim": "#cfbcff",
+                    "on-secondary-fixed": "#001f24",
+                    "on-error-container": "#ffdad6",
+                    "tertiary": "#fdf7ff",
+                    "surface-container-high": "#2a2a2a",
+                    "outline": "#84967e",
+                    "surface-container": "#201f1f",
+                    "background": "#131313",
+                    "on-secondary-container": "#00616d",
+                    "on-primary": "#003907",
+                    "inverse-primary": "#006e16",
+                    "error-container": "#93000a",
+                    "surface-dim": "#131313",
+                    "surface-bright": "#3a3939",
+                    "on-background": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-mono-custom { font-family: 'Space Grotesk', monospace; }
+        .ghost-border { border: 1px solid rgba(59, 75, 55, 0.2); }
+        .ghost-border:hover { border: 1px solid rgba(59, 75, 55, 0.5); }
+        .terminal-header-dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid rgba(229, 226, 225, 0.3); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #131313; }
+        ::-webkit-scrollbar-thumb { background: #2a2a2a; }
+        ::-webkit-scrollbar-thumb:hover { background: #00ff41; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar: Fixed Anchor -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#131313] text-[#00FF41] font-['Space_Grotesk'] uppercase tracking-widest text-xs flex justify-between items-center w-full px-6 h-14 border-b border-[#2a2a2a]">
+<div class="font-['Space_Grotesk'] font-black text-[#00FF41] tracking-tighter text-lg">KERNEL_ARCH</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#00FF41] border-b-2 border-[#00FF41] pb-1 cursor-pointer active:opacity-70 transition-colors" href="#">ROOT</a>
+<a class="text-[#e5e2e1]/60 hover:bg-[#2a2a2a] hover:text-[#00FF41] cursor-pointer active:opacity-70 transition-colors" href="#">WORK</a>
+<a class="text-[#e5e2e1]/60 hover:bg-[#2a2a2a] hover:text-[#00FF41] cursor-pointer active:opacity-70 transition-colors" href="#">SKILLS</a>
+<a class="text-[#e5e2e1]/60 hover:bg-[#2a2a2a] hover:text-[#00FF41] cursor-pointer active:opacity-70 transition-colors" href="#">LOGS</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-white">terminal</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-white">settings</span>
+</div>
+</header>
+<div class="flex pt-14 min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-14 bottom-0 hidden md:flex flex-col py-4 h-[calc(100vh-3.5rem)] w-64 bg-[#1c1b1b] text-[#00FF41] font-['Space_Grotesk'] text-sm border-r border-[#2a2a2a]">
+<div class="px-6 mb-8">
+<div class="font-black text-[#00FF41] text-lg uppercase">SYS_ROOT</div>
+<div class="text-[10px] text-[#e5e2e1]/40 tracking-widest">v2.0.4-stable</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-[#00FF41] font-bold bg-[#2a2a2a] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-sm">folder</span>
+<span>~/home</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1]/40 hover:bg-[#201f1f] hover:text-[#00FF41] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-sm">folder_open</span>
+<span>~/projects</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1]/40 hover:bg-[#201f1f] hover:text-[#00FF41] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-sm">terminal</span>
+<span>~/bin</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-[#e5e2e1]/40 hover:bg-[#201f1f] hover:text-[#00FF41] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-sm">settings_ethernet</span>
+<span>~/etc</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<div class="p-3 bg-surface-container-lowest ghost-border text-[10px] leading-relaxed opacity-60">
+                    CPU_LOAD: 12%<br/>
+                    MEM_USE: 4.2GB/16GB<br/>
+                    NET_STATUS: UP
+                </div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-6 md:p-12 space-y-16">
+<!-- Hero Section / Identity Module -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-8 space-y-6">
+<div class="ghost-border bg-surface-container overflow-hidden shadow-2xl">
+<div class="bg-surface-container-highest px-4 py-2 flex items-center justify-between">
+<div class="flex gap-2">
+<div class="terminal-header-dot"></div>
+<div class="terminal-header-dot"></div>
+<div class="terminal-header-dot"></div>
+</div>
+<span class="text-[10px] font-mono-custom uppercase tracking-widest opacity-50">Identity_Protocol.sh</span>
+</div>
+<div class="p-8 md:flex gap-8 items-center bg-gradient-to-br from-surface-container to-surface">
+<div class="relative w-48 h-48 md:w-64 md:h-64 flex-shrink-0 mb-6 md:mb-0">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 border-2 border-primary-container p-1" data-alt="Professional portrait of a male developer in a dark studio setting with subtle cyan backlighting and sharp geometric focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSSwSeMUQaLXkskZTK34zFQUOUnJpicKb_T0y15bo0KMxBdhTbL7f4bbnle0AdJuPSNPQ4VfWoH3hzvT9hggZU5loi55JswwckKiYODEL6-TPJpeoG7V-BKm1GjOAhTvE42x_HgpfQ62-kotST2NEVzxQP8Zs1V7JXErN6Sp7Qq5w_QHqWTpzbpeftpKzZ5wkqRwclKXFXmSoNN6-Yy08C7jYUUQHRJn-h2mYwTtf7ph7urbAVHs5rG8WpCsS9BAZjilH33BSSsHY"/>
+<div class="absolute -bottom-2 -right-2 bg-primary-container text-on-primary-container px-3 py-1 text-xs font-bold font-mono-custom">ACTIVE</div>
+</div>
+<div class="space-y-4">
+<h1 class="font-headline font-black text-4xl md:text-6xl text-on-surface tracking-tighter">
+                                    SHIVANG <span class="text-primary-container">MOKARIYA</span>
+</h1>
+<p class="font-mono-custom text-primary-container text-sm md:text-lg tracking-wider">
+                                    &gt; FULL-STACK DEVELOPER | AI &amp; AUTOMATION ENGINEER
+                                </p>
+<div class="flex flex-wrap gap-3">
+<span class="bg-surface-container-high px-3 py-1 text-[10px] font-mono-custom uppercase tracking-tight text-on-surface">LOC: 127.0.0.1</span>
+<span class="bg-surface-container-high px-3 py-1 text-[10px] font-mono-custom uppercase tracking-tight text-on-surface">LATENCY: 12ms</span>
+<span class="bg-surface-container-high px-3 py-1 text-[10px] font-mono-custom uppercase tracking-tight text-on-surface">SHELL: ZSH</span>
+</div>
+<div class="pt-4">
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-mono-custom text-xs font-bold flex items-center gap-2 group hover:brightness-110 transition-all">
+                                        INITIATE_CONTACT <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 space-y-6">
+<div class="ghost-border bg-surface-container-low p-6">
+<h3 class="font-headline text-xs font-bold text-primary-container uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">verified_user</span> CREDENTIALS.JSON
+                        </h3>
+<div class="space-y-4">
+<div class="border-l-2 border-primary-container pl-4 py-1">
+<p class="text-[10px] text-white/40 font-mono-custom uppercase">Degree</p>
+<p class="text-sm font-bold">MCA - Master of Computer Applications</p>
+</div>
+<div class="border-l-2 border-outline-variant pl-4 py-1">
+<p class="text-[10px] text-white/40 font-mono-custom uppercase">Institute</p>
+<p class="text-sm font-bold">Ambaba Commerce College (BCA)</p>
+</div>
+<div class="border-l-2 border-primary-container pl-4 py-1 bg-primary-container/5">
+<p class="text-[10px] text-primary-container font-mono-custom uppercase">Certification</p>
+<p class="text-sm font-bold text-primary-container">MONGODB CERTIFIED PROFESSIONAL</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack / Bento Grid -->
+<section class="space-y-8">
+<div class="flex items-center gap-4">
+<h2 class="font-headline font-black text-3xl tracking-tighter uppercase">TECH_STACK</h2>
+<div class="h-[2px] flex-1 bg-gradient-to-r from-primary-container/30 to-transparent"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Frontend -->
+<div class="ghost-border bg-surface-container p-6 relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-[8px] font-mono-custom opacity-10">0x001_FRONTEND</div>
+<h4 class="text-primary-container font-mono-custom text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">layers</span> FRONTEND
+                        </h4>
+<ul class="space-y-3 font-mono-custom text-xs">
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-primary-container">&gt;</span> React.js
+                            </li>
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-primary-container">&gt;</span> Next.js
+                            </li>
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-primary-container">&gt;</span> Tailwind CSS
+                            </li>
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-primary-container">&gt;</span> Framer Motion
+                            </li>
+</ul>
+</div>
+<!-- Backend -->
+<div class="ghost-border bg-surface-container p-6 relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-[8px] font-mono-custom opacity-10">0x002_BACKEND</div>
+<h4 class="text-secondary font-mono-custom text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">terminal</span> BACKEND
+                        </h4>
+<ul class="space-y-3 font-mono-custom text-xs">
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-secondary">&gt;</span> Node.js
+                            </li>
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-secondary">&gt;</span> Express.js
+                            </li>
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-secondary">&gt;</span> Socket.io
+                            </li>
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-secondary">&gt;</span> GraphQL
+                            </li>
+</ul>
+</div>
+<!-- Persistence -->
+<div class="ghost-border bg-surface-container p-6 relative group overflow-hidden">
+<div class="absolute top-0 right-0 p-2 text-[8px] font-mono-custom opacity-10">0x003_PERSISTENCE</div>
+<h4 class="text-tertiary-fixed-dim font-mono-custom text-sm mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">database</span> PERSISTENCE
+                        </h4>
+<ul class="space-y-3 font-mono-custom text-xs">
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-tertiary-fixed-dim">&gt;</span> MongoDB
+                            </li>
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-tertiary-fixed-dim">&gt;</span> PostgreSQL
+                            </li>
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-tertiary-fixed-dim">&gt;</span> Redis
+                            </li>
+<li class="flex items-center gap-2 hover:translate-x-1 transition-transform cursor-default">
+<span class="text-tertiary-fixed-dim">&gt;</span> Prisma ORM
+                            </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Experience & AI Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Prof. Experience -->
+<div class="space-y-8">
+<div class="flex items-center gap-4">
+<h2 class="font-headline font-black text-2xl tracking-tighter uppercase">PROF_EXP</h2>
+<div class="h-[2px] flex-1 bg-gradient-to-r from-primary-container/20 to-transparent"></div>
+</div>
+<div class="space-y-6">
+<div class="p-6 bg-surface-container-lowest ghost-border border-l-4 border-l-primary-container group transition-all hover:bg-surface-container">
+<h4 class="font-bold text-lg mb-2">Multi-level Vendor Management</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed font-body">Architected complex hierarchical structures for enterprise vendors using recursive database schemas and efficient indexing.</p>
+</div>
+<div class="p-6 bg-surface-container-lowest ghost-border border-l-4 border-l-outline-variant group transition-all hover:bg-surface-container">
+<h4 class="font-bold text-lg mb-2">Admin Panels with RBAC</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed font-body">Deployed secure Role-Based Access Control systems for sensitive internal operations and data governance.</p>
+</div>
+<div class="p-6 bg-surface-container-lowest ghost-border border-l-4 border-l-outline-variant group transition-all hover:bg-surface-container">
+<h4 class="font-bold text-lg mb-2">Subscription Billing Systems</h4>
+<p class="text-xs text-on-surface-variant leading-relaxed font-body">Integrated automated billing cycles with multi-tier subscription models using Stripe and internal ledger systems.</p>
+</div>
+</div>
+</div>
+<!-- AI Automation -->
+<div class="space-y-8">
+<div class="flex items-center gap-4">
+<h2 class="font-headline font-black text-2xl tracking-tighter uppercase text-secondary">AI_AUTOMATION</h2>
+<div class="h-[2px] flex-1 bg-gradient-to-r from-secondary/20 to-transparent"></div>
+</div>
+<div class="ghost-border bg-gradient-to-br from-surface-container to-[#1a1a1a] p-8 space-y-8">
+<div class="flex items-start gap-4">
+<div class="bg-secondary/10 p-3">
+<span class="material-symbols-outlined text-secondary">smart_toy</span>
+</div>
+<div>
+<h4 class="font-mono-custom font-bold text-sm tracking-widest text-secondary mb-1">N8N_AGENTIC_FLOWS</h4>
+<p class="text-xs text-on-surface-variant font-body">Building self-healing automation pipelines with advanced logic and multi-step agent decision making.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-secondary/10 p-3">
+<span class="material-symbols-outlined text-secondary">hub</span>
+</div>
+<div>
+<h4 class="font-mono-custom font-bold text-sm tracking-widest text-secondary mb-1">MCP_SERVER_DEV</h4>
+<p class="text-xs text-on-surface-variant font-body">Developing Model Context Protocol servers to bridge the gap between LLMs and local infrastructure.</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container-high font-mono-custom text-[10px] text-secondary/60 leading-tight">
+                            [STATUS]: ANALYZING_DOM_TREES...<br/>
+                            [ACTION]: GENERATING_OPTIMAL_WORKFLOWS...<br/>
+                            [RESULT]: SUCCESS
+                        </div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-[#131313] text-[#00FF41] font-['Space_Grotesk'] text-[10px] uppercase tracking-tighter flex justify-between items-center px-4 py-2 w-full border-t border-[#2a2a2a] relative z-50">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-primary-container rounded-full animate-pulse"></span>
+                SYS_STATUS: ONLINE // 127.0.0.1
+            </span>
+<span class="hidden md:inline text-white/20">|</span>
+<span class="hidden md:inline">UPTIME: 99.9%</span>
+</div>
+<div class="flex gap-6">
+<a class="hover:text-[#00FF41] text-[#e5e2e1]/50 transition-opacity" href="#">README.md</a>
+<a class="hover:text-[#00FF41] text-[#e5e2e1]/50 transition-opacity" href="#">LICENSE</a>
+</div>
+</footer>
+</body></html>
+
+<!-- Portfolio Desktop -->
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KERNEL_OS // LOGS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#bdf4ff",
+                        "on-error": "#690005",
+                        "surface-variant": "#353534",
+                        "secondary-container": "#00e3fd",
+                        "outline-variant": "#3b4b37",
+                        "background": "#131313",
+                        "secondary-fixed": "#9cf0ff",
+                        "surface": "#131313",
+                        "on-secondary": "#00363d",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "tertiary-container": "#e3d6ff",
+                        "on-secondary-fixed": "#001f24",
+                        "on-primary-fixed": "#002203",
+                        "outline": "#84967e",
+                        "primary": "#ebffe2",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#b9ccb2",
+                        "on-tertiary-fixed-variant": "#5400cc",
+                        "on-tertiary-fixed": "#22005d",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed-variant": "#00530e",
+                        "on-tertiary": "#3a0092",
+                        "primary-fixed-dim": "#00e639",
+                        "tertiary-fixed": "#e9ddff",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-container": "#00616d",
+                        "primary-fixed": "#72ff70",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#353534",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary": "#003907",
+                        "surface-tint": "#00e639",
+                        "tertiary": "#fdf7ff",
+                        "surface-bright": "#3a3939",
+                        "on-primary-container": "#007117",
+                        "surface-container": "#201f1f",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#00daf3",
+                        "inverse-primary": "#006e16",
+                        "primary-container": "#00ff41",
+                        "on-background": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-container": "#7028f8",
+                        "tertiary-fixed-dim": "#cfbcff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0rem",
+                        "lg": "0rem",
+                        "xl": "0rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-mono-style { font-family: 'Space Grotesk', sans-serif; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #131313; }
+        ::-webkit-scrollbar-thumb { background: #3b4b37; }
+        ::-webkit-scrollbar-thumb:hover { background: #00ff41; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#131313]/80 backdrop-blur-xl border-b border-[#3b4b37]/20 shadow-[0px_0px_60px_-15px_rgba(0,255,65,0.1)]">
+<div class="text-xl font-bold text-[#00FF41] font-['Space_Grotesk'] tracking-tighter uppercase">KERNEL_ARCH</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-['Space_Grotesk'] tracking-tighter uppercase text-[#e5e2e1]/60 hover:text-[#00FF41] transition-colors" href="#">ROOT</a>
+<a class="font-['Space_Grotesk'] tracking-tighter uppercase text-[#e5e2e1]/60 hover:text-[#00FF41] transition-colors" href="#">WORK</a>
+<a class="font-['Space_Grotesk'] tracking-tighter uppercase text-[#e5e2e1]/60 hover:text-[#00FF41] transition-colors" href="#">SKILLS</a>
+<a class="font-['Space_Grotesk'] tracking-tighter uppercase text-[#00FF41] border-b-2 border-[#00FF41] pb-1" href="#">LOGS</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00FF41]" data-icon="terminal">terminal</span>
+<button class="bg-primary-container text-on-primary-container px-4 py-1 font-['Space_Grotesk'] font-bold uppercase text-sm hover:opacity-90 transition-all active:scale-95">DOWNLOAD_CV</button>
+</div>
+</header>
+<div class="flex pt-20 h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-full w-64 bg-[#1c1b1b] border-r border-[#3b4b37]/20 py-8">
+<div class="px-6 mb-10">
+<div class="text-[#00FF41] font-['Space_Grotesk'] text-sm uppercase tracking-widest font-bold">SYS_ADMIN</div>
+<div class="text-[#e5e2e1]/40 text-[10px] font-['Space_Grotesk']">v2.4.0-stable</div>
+</div>
+<nav class="flex-1 space-y-2">
+<div class="flex items-center gap-4 text-[#e5e2e1]/40 pl-5 hover:text-[#00FF41] transition-all duration-200 cursor-pointer py-2">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Space_Grotesk'] text-sm uppercase tracking-widest">ROOT</span>
+</div>
+<div class="flex items-center gap-4 text-[#e5e2e1]/40 pl-5 hover:text-[#00FF41] transition-all duration-200 cursor-pointer py-2">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="font-['Space_Grotesk'] text-sm uppercase tracking-widest">WORK</span>
+</div>
+<div class="flex items-center gap-4 text-[#e5e2e1]/40 pl-5 hover:text-[#00FF41] transition-all duration-200 cursor-pointer py-2">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-['Space_Grotesk'] text-sm uppercase tracking-widest">SKILLS</span>
+</div>
+<div class="flex items-center gap-4 text-[#00FF41] bg-[#2a2a2a] border-l-4 border-[#00FF41] pl-4 py-2">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="font-['Space_Grotesk'] text-sm uppercase tracking-widest font-bold">LOGS</span>
+</div>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full bg-[#2a2a2a] border border-[#00FF41]/30 text-[#00FF41] py-2 text-xs font-['Space_Grotesk'] tracking-widest uppercase hover:bg-[#00FF41] hover:text-on-primary-container transition-all">INIT_CHATTEL</button>
+<div class="space-y-2 pt-4 border-t border-[#3b4b37]/20">
+<div class="flex items-center gap-4 text-[#e5e2e1]/40 hover:text-[#00FF41] cursor-pointer">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+<span class="text-[10px] tracking-widest uppercase font-['Space_Grotesk']">SETTINGS</span>
+</div>
+<div class="flex items-center gap-4 text-[#e5e2e1]/40 hover:text-[#00FF41] cursor-pointer">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span class="text-[10px] tracking-widest uppercase font-['Space_Grotesk']">LOGOUT</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area: Terminal -->
+<main class="flex-1 flex flex-col md:flex-row bg-surface overflow-hidden relative">
+<!-- System Stats Margin (Left) -->
+<aside class="w-full md:w-72 bg-surface-container-low border-r border-outline-variant/10 p-6 overflow-y-auto">
+<div class="space-y-8">
+<div>
+<h3 class="text-xs uppercase tracking-tighter text-[#00FF41]/60 mb-4 font-headline">SYSTEM_METRICS</h3>
+<div class="space-y-6">
+<div class="space-y-1">
+<div class="flex justify-between text-[10px] text-on-surface-variant font-headline">
+<span>CPU_LOAD</span>
+<span>24.8%</span>
+</div>
+<div class="h-[2px] bg-surface-container-highest w-full relative">
+<div class="absolute h-full bg-primary-container w-[24.8%]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-[10px] text-on-surface-variant font-headline">
+<span>RAM_USAGE</span>
+<span>4.2GB / 16GB</span>
+</div>
+<div class="h-[2px] bg-surface-container-highest w-full relative">
+<div class="absolute h-full bg-primary-container w-[32%]"></div>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-[10px] text-on-surface-variant font-headline">
+<span>UPTIME</span>
+<span>124:14:02:44</span>
+</div>
+<div class="h-[2px] bg-surface-container-highest w-full"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-highest p-4 border border-outline-variant/20">
+<h4 class="text-[10px] font-bold text-primary mb-2 tracking-widest uppercase font-headline">NETWORK_STATUS</h4>
+<div class="text-[10px] font-headline text-on-surface/60 leading-relaxed">
+                            IP: 192.168.1.104<br/>
+                            DNS: KERNEL.PRO<br/>
+                            PORT: 443 [OPEN]<br/>
+                            LATENCY: 14ms
+                        </div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="h-32 w-full bg-surface-container-lowest relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/10 to-transparent"></div>
+<div class="absolute bottom-2 left-2 flex flex-col">
+<span class="text-[8px] text-primary/40 font-headline uppercase">LOCAL_RADAR</span>
+<span class="text-[10px] text-primary font-headline">REGION: NA-EAST-1</span>
+</div>
+<div class="p-2">
+<div class="w-2 h-2 bg-primary animate-pulse"></div>
+</div>
+<img class="absolute inset-0 object-cover opacity-20 grayscale" data-alt="close up of a high tech computer server circuit board with glowing green and white microchips in a dark data center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk-f1i2rpPu1PcThmp82MZYrCsQqI0tBvRAGaihIwOUZ3aH9PQ4krA8YtqXnW2jBCwT402SkJXLXZQS5z26VDqWu8JnV2ZKczaB5s6nI3qMerovtYGNcvTGArttHNwT_ccShkPJroF5wzaU2tS1VeJYSKpXHI-rUxlkRyNM-fbbcL7gmAjzLaUSszkJPGZYpi6uFTJmqSP4ZP70OLUy7b8yD5dIg3ICaDNqSY3O9B3vJValxUHyOw8YAEZ_KCvKAE57zAaIqVv2JY"/>
+</div>
+</div>
+</div>
+</aside>
+<!-- Terminal Area -->
+<section class="flex-1 flex flex-col bg-surface overflow-hidden">
+<!-- Terminal Header Bar -->
+<div class="bg-surface-container-highest px-4 py-2 flex items-center justify-between border-b border-outline-variant/20">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 bg-outline-variant/40 rounded-full"></div>
+<div class="w-2.5 h-2.5 bg-outline-variant/40 rounded-full"></div>
+<div class="w-2.5 h-2.5 bg-outline-variant/40 rounded-full"></div>
+</div>
+<div class="text-[10px] font-headline text-on-surface-variant tracking-widest uppercase">bash — kernel-os@admin: ~/logs</div>
+<div class="w-10"></div>
+</div>
+<!-- Scrolling Logs -->
+<div class="flex-1 overflow-y-auto p-6 font-headline bg-surface-container-lowest/30 backdrop-blur-sm">
+<div class="space-y-4 max-w-4xl">
+<!-- Log Entry -->
+<div class="flex gap-4 group">
+<span class="text-[#00FF41]/40 text-xs shrink-0">[2024-11-20 14:22:01]</span>
+<div class="flex-1">
+<span class="text-primary-container text-xs font-bold uppercase tracking-widest">DEPLOYED:</span>
+<span class="text-on-surface text-sm ml-2">Multi-vendor ERP system integrated with Stripe API.</span>
+<div class="mt-2 flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-surface-container-high text-[10px] text-secondary font-bold">#NEXTJS</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-[10px] text-secondary font-bold">#PRISMA</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-[10px] text-secondary font-bold">#AWS</span>
+</div>
+</div>
+</div>
+<!-- Log Entry -->
+<div class="flex gap-4 group">
+<span class="text-[#00FF41]/40 text-xs shrink-0">[2024-11-18 09:10:45]</span>
+<div class="flex-1">
+<span class="text-secondary-container text-xs font-bold uppercase tracking-widest">OPTIMIZED:</span>
+<span class="text-on-surface text-sm ml-2">Real-time Socket Engine performance improved by 40% reducing latency to 12ms.</span>
+<div class="mt-2 flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-surface-container-high text-[10px] text-secondary font-bold">#REDIS</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-[10px] text-secondary font-bold">#SOCKETIO</span>
+</div>
+</div>
+</div>
+<!-- Log Entry -->
+<div class="flex gap-4 group">
+<span class="text-[#00FF41]/40 text-xs shrink-0">[2024-11-15 22:45:12]</span>
+<div class="flex-1">
+<span class="text-primary-container text-xs font-bold uppercase tracking-widest">INTEGRATED:</span>
+<span class="text-on-surface text-sm ml-2">Subscription Core v2 migration completed for 15,000+ active seats.</span>
+<div class="mt-2 flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-surface-container-high text-[10px] text-secondary font-bold">#GOLANG</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-[10px] text-secondary font-bold">#POSTGRES</span>
+</div>
+</div>
+</div>
+<!-- Log Entry (Warning/Error Simulation) -->
+<div class="flex gap-4 group">
+<span class="text-error/40 text-xs shrink-0">[2024-11-12 04:12:33]</span>
+<div class="flex-1">
+<span class="text-error text-xs font-bold uppercase tracking-widest">REFACTORED:</span>
+<span class="text-on-surface text-sm ml-2">Legacy auth middleware replaced with decentralized JWT strategy.</span>
+</div>
+</div>
+<!-- Log Entry -->
+<div class="flex gap-4 group">
+<span class="text-[#00FF41]/40 text-xs shrink-0">[2024-11-10 18:05:00]</span>
+<div class="flex-1">
+<span class="text-primary-container text-xs font-bold uppercase tracking-widest">INITIATED:</span>
+<span class="text-on-surface text-sm ml-2">Internal AI-driven log analysis engine (v0.1-alpha).</span>
+</div>
+</div>
+<!-- Log Entry -->
+<div class="flex gap-4 group">
+<span class="text-[#00FF41]/40 text-xs shrink-0">[2024-11-05 12:00:22]</span>
+<div class="flex-1">
+<span class="text-secondary-container text-xs font-bold uppercase tracking-widest">SCALED:</span>
+<span class="text-on-surface text-sm ml-2">Microservices cluster scaled to 12 instances across 3 availability zones.</span>
+<div class="mt-2 flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-surface-container-high text-[10px] text-secondary font-bold">#K8S</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-[10px] text-secondary font-bold">#DOCKER</span>
+</div>
+</div>
+</div>
+<!-- Log Entry -->
+<div class="flex gap-4 group">
+<span class="text-[#00FF41]/40 text-xs shrink-0">[2024-10-28 11:30:44]</span>
+<div class="flex-1">
+<span class="text-primary-container text-xs font-bold uppercase tracking-widest">DECRYPTED:</span>
+<span class="text-on-surface text-sm ml-2">Customer vault security handshake protocols updated.</span>
+</div>
+</div>
+<!-- Command Prompt Simulation -->
+<div class="pt-8 flex gap-3 items-center">
+<span class="text-[#00FF41] font-bold">admin@kernel_os:~$</span>
+<span class="text-on-surface/90">tail -f activity.log</span>
+<span class="w-2.5 h-5 bg-secondary-container animate-pulse"></span>
+</div>
+</div>
+</div>
+<!-- Terminal Bottom Info -->
+<div class="bg-surface-container border-t border-outline-variant/10 px-6 py-3 flex justify-between items-center text-[10px] font-headline">
+<div class="flex gap-6">
+<span class="text-on-surface-variant"><b class="text-primary">MODE:</b> LIVE_STREAM</span>
+<span class="text-on-surface-variant"><b class="text-primary">ENCODING:</b> UTF-8</span>
+</div>
+<div class="text-on-surface-variant opacity-50">SCROLLING_ENABLED_v2.4</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full px-6 py-4 flex justify-between items-center mt-auto bg-[#131313] border-t border-[#3b4b37]/10">
+<div class="font-['Space_Grotesk'] text-[10px] uppercase opacity-50 text-on-surface">© 2024 KERNEL_OS - NO_RIGHTS_RESERVED</div>
+<div class="flex gap-6">
+<a class="font-['Space_Grotesk'] text-[10px] uppercase text-[#e5e2e1]/30 hover:text-[#00FF41] underline decoration-[#00FF41] transition-opacity" href="#">GITHUB</a>
+<a class="font-['Space_Grotesk'] text-[10px] uppercase text-[#e5e2e1]/30 hover:text-[#00FF41] hover:underline decoration-[#00FF41] transition-opacity" href="#">LINKEDIN</a>
+<a class="font-['Space_Grotesk'] text-[10px] uppercase text-[#e5e2e1]/30 hover:text-[#00FF41] hover:underline decoration-[#00FF41] transition-opacity" href="#">STACK_OVERFLOW</a>
+</div>
+</footer>
+</body></html>
+
+<!-- System Logs -->
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SHIVANG_MOKARIYA // KERNEL_PORTFOLIO</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#00daf3",
+                        "outline-variant": "#3b4b37",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#5400cc",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "on-secondary-container": "#00616d",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#00ff41",
+                        "on-tertiary-container": "#7028f8",
+                        "on-secondary-fixed": "#001f24",
+                        "surface-tint": "#00e639",
+                        "secondary-fixed": "#9cf0ff",
+                        "secondary-container": "#00e3fd",
+                        "surface-dim": "#131313",
+                        "surface": "#131313",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#002203",
+                        "tertiary-fixed-dim": "#cfbcff",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#353534",
+                        "primary-fixed-dim": "#00e639",
+                        "primary-fixed": "#72ff70",
+                        "on-primary-container": "#007117",
+                        "inverse-primary": "#006e16",
+                        "primary": "#ebffe2",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary": "#00363d",
+                        "surface-container-lowest": "#0e0e0e",
+                        "outline": "#84967e",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container": "#201f1f",
+                        "on-primary-fixed-variant": "#00530e",
+                        "surface-container-highest": "#353534",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary": "#3a0092",
+                        "on-tertiary-fixed": "#22005d",
+                        "on-surface-variant": "#b9ccb2",
+                        "on-primary": "#003907",
+                        "tertiary": "#fdf7ff",
+                        "tertiary-fixed": "#e9ddff",
+                        "surface-bright": "#3a3939",
+                        "secondary": "#bdf4ff",
+                        "tertiary-container": "#e3d6ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #131313; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #3b4b37; }
+        .terminal-cursor { border-right: 8px solid #00ff41; animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { border-color: transparent; } }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container custom-scrollbar">
+<!-- TopAppBar -->
+<header class="bg-[#131313] text-[#00FF41] font-space-grotesk tracking-tighter uppercase fixed top-0 left-0 right-0 z-50 border-b-0">
+<div class="flex justify-between items-center px-6 py-4 w-full bg-[#201f1f]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#00FF41]">terminal</span>
+<span class="text-xl font-bold text-[#00FF41] tracking-[0.2em]">KERNEL_SYSTEM_V1.0</span>
+</div>
+<nav class="hidden md:flex gap-8 text-sm font-bold">
+<a class="text-[#00FF41] border-b-2 border-[#00FF41] hover:bg-[#2a2a2a] transition-colors" href="#">ROOT</a>
+<a class="text-[#e5e2e1] opacity-70 hover:bg-[#2a2a2a] hover:text-[#00FF41] transition-colors" href="#">PROJECTS</a>
+<a class="text-[#e5e2e1] opacity-70 hover:bg-[#2a2a2a] hover:text-[#00FF41] transition-colors" href="#">SKILLS</a>
+<a class="text-[#e5e2e1] opacity-70 hover:bg-[#2a2a2a] hover:text-[#00FF41] transition-colors" href="#">LOGS</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="text-[10px] opacity-50 hidden sm:block font-mono">LATENCY: 14MS</span>
+<span class="material-symbols-outlined hover:text-white cursor-pointer">settings</span>
+</div>
+</div>
+</header>
+<!-- NavigationDrawer (Visible on larger screens as a sidebar) -->
+<aside class="hidden lg:flex flex-col h-full space-y-2 p-4 fixed left-0 top-0 pt-20 w-64 bg-[#131313] bg-[#1c1b1b] border-r-0 z-40">
+<div class="px-4 py-2 mb-4">
+<h2 class="font-space-grotesk text-sm uppercase text-[#00FF41] font-bold tracking-widest opacity-50">DIRECTORIES</h2>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#2a2a2a] text-[#00FF41] border-l-4 border-[#00FF41] font-space-grotesk text-sm uppercase transition-all" href="#">
+<span class="material-symbols-outlined">home</span> ROOT
+        </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] font-space-grotesk text-sm uppercase transition-all" href="#">
+<span class="material-symbols-outlined">code</span> PROJECTS
+        </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] font-space-grotesk text-sm uppercase transition-all" href="#">
+<span class="material-symbols-outlined">terminal</span> SKILLS
+        </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#e5e2e1] opacity-60 hover:bg-[#201f1f] font-space-grotesk text-sm uppercase transition-all" href="#">
+<span class="material-symbols-outlined">history</span> LOGS
+        </a>
+<div class="mt-auto p-4 border-t border-outline-variant/20">
+<div class="flex flex-col gap-2">
+<div class="text-[10px] text-primary opacity-40 uppercase tracking-tighter">System Status</div>
+<div class="h-1 bg-surface-container-high w-full">
+<div class="h-full bg-primary-container w-3/4"></div>
+</div>
+<div class="text-[10px] text-on-surface opacity-60">CPU: 42% | RAM: 8.2GB</div>
+</div>
+</div>
+</aside>
+<main class="lg:ml-64 pt-20 pb-24 px-4 md:px-8 max-w-7xl mx-auto">
+<!-- Hero Section: Terminal Window -->
+<section class="mt-8 mb-16">
+<div class="bg-surface-container border border-outline-variant/20 shadow-2xl">
+<!-- Terminal Header -->
+<div class="bg-surface-container-highest px-4 py-2 flex items-center justify-between">
+<div class="flex gap-2">
+<div class="w-3 h-3 border border-outline-variant/40"></div>
+<div class="w-3 h-3 border border-outline-variant/40"></div>
+<div class="w-3 h-3 border border-outline-variant/40"></div>
+</div>
+<div class="text-[10px] font-mono opacity-50 uppercase tracking-widest">shivang@kernel-v1: ~</div>
+<div class="w-12"></div>
+</div>
+<!-- Terminal Body -->
+<div class="p-6 md:p-10 grid md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-4 relative group">
+<div class="absolute -inset-2 border border-primary-container/20 translate-x-2 translate-y-2 pointer-events-none"></div>
+<img alt="Shivang Mokariya Portrait" class="w-full aspect-square object-cover grayscale contrast-125 filter brightness-75 border-none" data-alt="Professional portrait of a tech professional in a dark studio setting with subtle green rim lighting reflecting a coder aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBROhxF4ICKWVywfBxb7CEMrNNAPO8FibX5M2eptjj35Xppp-PUNrRxNt7El500MkuTeOymfm65_JW-Fx7NeFuKXSX-X9tBPnsT8YcPtVDw8PyXgaShnwUaJRX0M63Ff1u9dEwnFWJzaO3UJ3pT_xZSW-uwJYzHYpYViVyBJYuJIXrWZUB7XU4qAems4H59YczlrCA1ozDpt6-raFrtfIXYMdKh4NnMpN_6e7n8s9UUy-IQ-xoZ-h4tNCjkePaC5ri6WHm-92DVIFg"/>
+<div class="absolute inset-0 bg-primary-container/10 mix-blend-overlay"></div>
+</div>
+<div class="md:col-span-8 space-y-6">
+<div class="space-y-2">
+<p class="font-mono text-primary-container text-sm">guest@portfolio:~$ <span class="text-on-surface">whoami</span></p>
+<h1 class="text-4xl md:text-6xl font-headline font-bold tracking-tighter text-on-surface">SHIVANG MOKARIYA</h1>
+<h2 class="text-xl md:text-2xl font-headline text-primary-container opacity-90">FULL-STACK DEVELOPER | AI &amp; AUTOMATION ENGINEER</h2>
+</div>
+<p class="text-on-surface-variant max-w-xl leading-relaxed">
+                            Architecting digital environments with structural logic. Focused on bridging the gap between raw backend efficiency and high-fidelity user experiences.
+                        </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-headline font-bold text-sm flex items-center gap-2 group transition-transform active:scale-95">
+                                INIT_CONTACT <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="border border-outline-variant px-6 py-2 font-headline font-bold text-sm hover:bg-surface-container-high transition-colors">
+                                VIEW_RESUME.PDF
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Experience & Skills -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<!-- Skills Module -->
+<div class="md:col-span-2 bg-surface-container border border-outline-variant/20 p-6 flex flex-col h-full">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline font-bold text-lg flex items-center gap-2">
+<span class="text-primary-container">/</span> TECHNICAL_STACK
+                    </h3>
+<span class="text-[10px] font-mono opacity-30">TYPE: ARRAY</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="space-y-4">
+<h4 class="text-[10px] font-headline uppercase tracking-widest text-secondary font-bold">Frontend_Engine</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-primary-container"># React.js</span>
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-primary-container"># Next.js</span>
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-primary-container"># TailwindCSS</span>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="text-[10px] font-headline uppercase tracking-widest text-secondary font-bold">Backend_Core</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-secondary"># Node.js</span>
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-secondary"># Express</span>
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-secondary"># Socket.io</span>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="text-[10px] font-headline uppercase tracking-widest text-secondary font-bold">Persistence_Layers</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-primary-container"># MongoDB</span>
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-primary-container"># PostgreSQL</span>
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-primary-container"># Redis</span>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="text-[10px] font-headline uppercase tracking-widest text-secondary font-bold">Automation_AI</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-secondary"># n8n Workflows</span>
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-secondary"># MCP Servers</span>
+<span class="px-3 py-1 bg-surface-container-high text-xs font-mono text-on-surface border-l-2 border-secondary"># AI Agents</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Education Module -->
+<div class="bg-surface-container border border-outline-variant/20 p-6 flex flex-col">
+<div class="mb-6">
+<h3 class="font-headline font-bold text-lg flex items-center gap-2">
+<span class="text-primary-container">/</span> CREDENTIALS
+                    </h3>
+</div>
+<div class="space-y-6">
+<div class="relative pl-4 border-l border-outline-variant/40">
+<div class="absolute top-0 left-0 -translate-x-1/2 w-2 h-2 bg-primary-container"></div>
+<div class="text-xs font-mono text-primary-container mb-1">CURRENT</div>
+<div class="font-headline font-bold">MCA</div>
+<div class="text-xs text-on-surface-variant">Master of Computer Applications</div>
+</div>
+<div class="relative pl-4 border-l border-outline-variant/40">
+<div class="absolute top-0 left-0 -translate-x-1/2 w-2 h-2 bg-outline"></div>
+<div class="text-xs font-mono opacity-50 mb-1">GRADUATED</div>
+<div class="font-headline font-bold">BCA</div>
+<div class="text-xs text-on-surface-variant">Bachelor of Computer Applications</div>
+</div>
+<div class="relative pl-4 border-l border-outline-variant/40">
+<div class="absolute top-0 left-0 -translate-x-1/2 w-2 h-2 bg-secondary"></div>
+<div class="text-xs font-mono text-secondary mb-1">CERTIFICATION</div>
+<div class="font-headline font-bold">MONGODB_CERTIFIED</div>
+<div class="text-xs text-on-surface-variant">Database Architecture Specialization</div>
+</div>
+</div>
+</div>
+<!-- AI & Automation Section -->
+<div class="md:col-span-3 grid md:grid-cols-2 gap-6">
+<!-- Work Focus -->
+<div class="bg-surface-container border border-outline-variant/20 p-8">
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-primary-container text-4xl">developer_board</span>
+<div>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter">Architecture_Specialization</h3>
+<p class="text-[10px] font-mono opacity-50">PRODUCTION_READY_SYSTEMS</p>
+</div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-4 p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="text-primary-container font-mono text-lg">&gt;</span>
+<div>
+<div class="font-headline font-bold text-sm">Multi-level Vendor Management Systems</div>
+<div class="text-xs text-on-surface-variant opacity-70">Complex hierarchy management with enterprise-grade security.</div>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="text-primary-container font-mono text-lg">&gt;</span>
+<div>
+<div class="font-headline font-bold text-sm">Intuitive Admin Panels with RBAC</div>
+<div class="text-xs text-on-surface-variant opacity-70">Granular Role-Based Access Control for large scale operations.</div>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="text-primary-container font-mono text-lg">&gt;</span>
+<div>
+<div class="font-headline font-bold text-sm">Subscription Billing &amp; Real-time Comms</div>
+<div class="text-xs text-on-surface-variant opacity-70">Seamless Stripe integrations and Socket.io powered chat systems.</div>
+</div>
+</li>
+</ul>
+</div>
+<!-- AI Systems -->
+<div class="bg-surface-container-low border border-outline-variant/10 p-8 flex flex-col">
+<div class="mb-8">
+<div class="text-primary-container font-mono text-xs mb-2">RUNNING: AGENT_SYSTEM_01</div>
+<h3 class="font-headline font-bold text-3xl tracking-tighter">AI_AUTOMATION</h3>
+</div>
+<div class="flex-grow space-y-6">
+<div class="p-5 border border-primary-container/20 bg-surface-container flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-headline font-bold text-xs uppercase tracking-widest">n8n_agentic_flows</span>
+<span class="material-symbols-outlined text-secondary text-lg">auto_fix</span>
+</div>
+<p class="text-xs leading-relaxed opacity-80">Developing self-correcting automation workflows that leverage LLMs for complex decision making and data processing.</p>
+</div>
+<div class="p-5 border border-outline-variant/20 bg-surface-container flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="font-headline font-bold text-xs uppercase tracking-widest">mcp_server_dev</span>
+<span class="material-symbols-outlined text-primary-container text-lg">settings_input_component</span>
+</div>
+<p class="text-xs leading-relaxed opacity-80">Building Model Context Protocol servers to bridge the gap between local tools and frontier AI models.</p>
+</div>
+</div>
+<div class="mt-8 p-4 bg-black/40 font-mono text-[10px] text-primary-container overflow-hidden">
+<div class="animate-pulse">system.load(automation_core)</div>
+<div class="opacity-60">&gt; connection: secure_tunnel</div>
+<div class="opacity-40">&gt; processing: mcp_request_712</div>
+<div class="terminal-cursor w-2 h-4 inline-block align-middle ml-1"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Latest Logs (Experience placeholders) -->
+<section class="space-y-4 mb-16">
+<h3 class="font-headline font-bold text-lg px-2">SYSTEM_LOGS.TXT</h3>
+<div class="bg-surface-container-low border border-outline-variant/20 divide-y divide-outline-variant/10">
+<div class="p-4 flex flex-col sm:flex-row sm:items-center justify-between hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-4">
+<span class="text-primary font-mono text-xs opacity-50">2024-05-12</span>
+<span class="font-headline font-bold text-sm">DEPLOYED: MULTI_VENDOR_ERP</span>
+</div>
+<div class="text-[10px] font-mono text-secondary opacity-0 group-hover:opacity-100 transition-opacity uppercase">STATUS: LIVE</div>
+</div>
+<div class="p-4 flex flex-col sm:flex-row sm:items-center justify-between hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-4">
+<span class="text-primary font-mono text-xs opacity-50">2024-03-22</span>
+<span class="font-headline font-bold text-sm">OPTIMIZED: REALTIME_SOCKET_ENGINE</span>
+</div>
+<div class="text-[10px] font-mono text-secondary opacity-0 group-hover:opacity-100 transition-opacity uppercase">STATUS: STABLE</div>
+</div>
+<div class="p-4 flex flex-col sm:flex-row sm:items-center justify-between hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-4">
+<span class="text-primary font-mono text-xs opacity-50">2024-01-05</span>
+<span class="font-headline font-bold text-sm">INTEGRATED: SUBSCRIPTION_CORE_V2</span>
+</div>
+<div class="text-[10px] font-mono text-secondary opacity-0 group-hover:opacity-100 transition-opacity uppercase">STATUS: DEPLOYED</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#131313] text-[#00FF41] font-inter text-[10px] tracking-widest uppercase lg:ml-64 border-t border-[#3b4b37]/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-4 w-full bg-[#1c1b1b]">
+<div class="flex items-center gap-4 mb-4 md:mb-0">
+<span class="text-[#00FF41]">SYS_ADMIN@LOCAL:~$ ALL_RIGHTS_RESERVED_2024</span>
+</div>
+<div class="flex gap-8">
+<a class="text-[#e5e2e1] opacity-50 hover:text-[#bdf4ff] underline transition-opacity" href="#">GITHUB</a>
+<a class="text-[#e5e2e1] opacity-50 hover:text-[#bdf4ff] underline transition-opacity" href="#">LINKEDIN</a>
+<a class="text-[#00FF41] transition-opacity" href="#">UPTIME_99.9%</a>
+</div>
+</div>
+</footer>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#201f1f] flex justify-around items-center px-4 py-3">
+<a class="flex flex-col items-center gap-1 text-[#00FF41]" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[8px] font-bold">ROOT</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#e5e2e1] opacity-60" href="#">
+<span class="material-symbols-outlined">code</span>
+<span class="text-[8px] font-bold">WORK</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#e5e2e1] opacity-60" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span class="text-[8px] font-bold">SKILLS</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#e5e2e1] opacity-60" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="text-[8px] font-bold">LOGS</span>
+</a>
+</nav>
+</body></html>

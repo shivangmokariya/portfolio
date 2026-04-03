@@ -1,0 +1,309 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "KERNEL_ARCH // SKILLS",
+  description:
+    "System configuration and skill modules. Backend, Frontend, Database, AI and Automation capabilities.",
+};
+
+export default function SkillsPage() {
+  return (
+    <div className="p-6 md:p-10 bg-surface">
+      {/* Hero / BIOS Header */}
+      <div className="mb-12 border-l-2 border-[#00FF41] pl-6 py-4">
+        <h1 className="text-4xl md:text-6xl font-headline font-bold text-on-surface tracking-tighter uppercase mb-2">
+          SYSTEM_CONF <span className="text-primary-container">/SKILLS</span>
+        </h1>
+        <p className="font-label text-sm text-[#00FF41]/60 tracking-widest">
+          INITIALIZING KERNEL MODULES... [DONE] <br />
+          CHECKING INTERFACE LAYER... [STABLE]
+        </p>
+      </div>
+
+      {/* Bento Grid of Skills */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        {/* Category: KERNEL_MODULES */}
+        <div className="md:col-span-8 bg-surface-container border border-outline-variant/20 relative group">
+          {/* Terminal Header */}
+          <div className="bg-surface-container-highest px-4 py-2 flex items-center justify-between">
+            <span className="font-label text-[10px] tracking-widest text-on-surface/40 uppercase flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-error"></span>
+              <span className="w-2 h-2 rounded-full bg-[#FFB400]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#00FF41]"></span>
+              MODULE_ID: KERNEL_MODULES
+            </span>
+            <span className="material-symbols-outlined text-xs text-on-surface/40">
+              more_horiz
+            </span>
+          </div>
+          <div className="p-6">
+            <h2 className="font-headline text-2xl text-primary-container mb-6 flex items-center gap-3">
+              <span className="material-symbols-outlined">memory</span>{" "}
+              BACKEND_SYSTEM
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <SkillBar name="Node.js" percentage={92} />
+              <SkillBar name="Express" percentage={88} />
+              <SkillBar name="Nest.js" percentage={75} />
+              <SkillBar name="Typescript" percentage={95} />
+            </div>
+          </div>
+        </div>
+
+        {/* Category: DATA_PERSISTENCE */}
+        <div className="md:col-span-4 bg-surface-container-low border border-outline-variant/20 flex flex-col">
+          <div className="bg-surface-container-highest px-4 py-2 flex items-center">
+            <span className="font-label text-[10px] tracking-widest text-on-surface/40 uppercase">
+              DATA_PERSISTENCE.LOG
+            </span>
+          </div>
+          <div className="p-6 flex-1 flex flex-col gap-6">
+            <div className="flex items-start gap-4">
+              <span className="material-symbols-outlined text-primary-container">
+                database
+              </span>
+              <div>
+                <h3 className="font-headline text-lg uppercase text-on-surface">
+                  PostgreSQL
+                </h3>
+                <p className="text-xs font-body text-on-surface/40 mt-1">
+                  Relational integrity &amp; complex queries.
+                </p>
+                <div className="mt-4 flex items-center gap-2">
+                  <span className="text-[10px] px-2 py-0.5 bg-surface-container-high text-primary-container font-label uppercase">
+                    High_Availability
+                  </span>
+                  <span className="text-[10px] px-2 py-0.5 bg-surface-container-high text-primary-container font-label uppercase">
+                    Indexing
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-outline-variant/10"></div>
+
+            <div className="flex items-start gap-4">
+              <span className="material-symbols-outlined text-primary-container">
+                storage
+              </span>
+              <div>
+                <h3 className="font-headline text-lg uppercase text-on-surface">
+                  MongoDB
+                </h3>
+                <p className="text-xs font-body text-on-surface/40 mt-1">
+                  Schema-less high speed data persistence.
+                </p>
+                <div className="mt-4 flex items-center gap-2">
+                  <span className="text-[10px] px-2 py-0.5 bg-surface-container-high text-primary-container font-label uppercase">
+                    Aggregation
+                  </span>
+                  <span className="text-[10px] px-2 py-0.5 bg-surface-container-high text-primary-container font-label uppercase">
+                    Scaling
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-auto pt-6">
+              <div className="text-[10px] font-label text-primary-container/40 animate-pulse">
+                [SYSTEM] SYNCING DATABASE CLUSTERS... 100%
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Category: INTERFACE_LAYER */}
+        <div className="md:col-span-5 bg-surface-container border border-outline-variant/20">
+          <div className="bg-surface-container-highest px-4 py-2">
+            <span className="font-label text-[10px] tracking-widest text-on-surface/40 uppercase">
+              INTERFACE_LAYER.SYS
+            </span>
+          </div>
+          <div className="p-6 space-y-6">
+            <div className="flex justify-between items-center">
+              <h2 className="font-headline text-xl text-on-surface uppercase">
+                Frontend_Core
+              </h2>
+              <span className="text-xs font-label text-[#00FF41]">
+                ACTIVE_UI_THREAD
+              </span>
+            </div>
+            <div className="space-y-4">
+              <InterfaceSkill
+                icon="web"
+                name="REACT / NEXT.JS"
+                percentage={95}
+                color="primary-container"
+              />
+              <InterfaceSkill
+                icon="palette"
+                name="TAILWIND_CSS"
+                percentage={98}
+                color="primary-container"
+              />
+              <InterfaceSkill
+                icon="animation"
+                name="FRAMER_MOTION"
+                percentage={82}
+                color="secondary"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Category: AUTOMATION_CORE */}
+        <div className="md:col-span-7 relative bg-surface-container/50 border border-[#00FF41]/10 backdrop-blur-md overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-container/5 to-transparent pointer-events-none"></div>
+          <div className="bg-surface-container-highest px-4 py-2 border-b border-[#00FF41]/10">
+            <span className="font-label text-[10px] tracking-widest text-primary-container uppercase">
+              AUTOMATION_CORE // AI_RUNTIME
+            </span>
+          </div>
+          <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+            <div className="space-y-4">
+              <AutoCard
+                icon="robot_2"
+                title="AI Agents"
+                desc="Custom LLM orchestrations using LangChain & AutoGen frameworks."
+                status="OPTIMIZED"
+                statusIcon="check_circle"
+              />
+              <AutoCard
+                icon="hub"
+                title="MCP Servers"
+                desc="Building Model Context Protocol servers for enhanced LLM capabilities."
+                status="STABLE"
+                statusIcon="verified_user"
+              />
+            </div>
+            <div className="bg-surface-container-lowest/80 p-5 font-headline text-[10px] text-primary-container/80 space-y-1 overflow-hidden">
+              <div className="text-on-surface/40 mb-2">
+                &gt;&gt; RUNNING N8N WORKFLOWS
+              </div>
+              <div>[09:24:01] GET /webhook/ai-agent-trigger</div>
+              <div>[09:24:02] PARSING PAYLOAD...</div>
+              <div>[09:24:03] LLM_RESPONSE: SUCCESS</div>
+              <div>[09:24:04] SYNCING TO POSTGRES...</div>
+              <div>[09:24:05] TRIGGERING SLACK_NOTIFY...</div>
+              <div>[09:24:06] WORKFLOW COMPLETE.</div>
+              <div className="pt-4 flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary-container animate-pulse"></div>
+                <span>AWAITING NEXT EVENT_POLL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Stats Module */}
+        <div className="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <StatCard label="uptime" value="99.98%" />
+          <StatCard label="commits" value="4,821" />
+          <StatCard label="latency" value="14ms" />
+          <StatCard label="entropy" value="SECURE" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* --- Sub Components --- */
+
+function SkillBar({
+  name,
+  percentage,
+}: {
+  name: string;
+  percentage: number;
+}) {
+  return (
+    <div className="space-y-3">
+      <div className="flex justify-between items-end font-label text-xs">
+        <span className="text-on-surface uppercase"># {name}</span>
+        <span className="text-primary-container">STATUS: OK</span>
+      </div>
+      <div className="h-2 w-full bg-surface-container-lowest">
+        <div
+          className="h-full bg-primary-container shadow-[0_0_10px_rgba(0,255,65,0.5)]"
+          style={{ width: `${percentage}%` }}
+        ></div>
+      </div>
+    </div>
+  );
+}
+
+function InterfaceSkill({
+  icon,
+  name,
+  percentage,
+  color,
+}: {
+  icon: string;
+  name: string;
+  percentage: number;
+  color: string;
+}) {
+  return (
+    <div
+      className={`flex items-center gap-4 bg-surface-container-lowest p-3 border-l-2 border-${color}`}
+    >
+      <span className={`material-symbols-outlined text-${color}`}>{icon}</span>
+      <div className="flex-1">
+        <div className="flex justify-between text-xs font-label">
+          <span>{name}</span>
+          <span>{percentage}%</span>
+        </div>
+        <div className="h-1 w-full bg-surface-variant mt-2">
+          <div
+            className={`h-full bg-${color}`}
+            style={{ width: `${percentage}%` }}
+          ></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AutoCard({
+  icon,
+  title,
+  desc,
+  status,
+  statusIcon,
+}: {
+  icon: string;
+  title: string;
+  desc: string;
+  status: string;
+  statusIcon: string;
+}) {
+  return (
+    <div className="p-4 bg-surface-container-highest/50 border border-outline-variant/20">
+      <div className="flex items-center gap-3 mb-3">
+        <span className="material-symbols-outlined text-primary-container">
+          {icon}
+        </span>
+        <h4 className="font-headline text-sm uppercase">{title}</h4>
+      </div>
+      <p className="text-xs text-on-surface/60 font-body mb-3">{desc}</p>
+      <div className="flex justify-between items-center">
+        <span className="text-[10px] font-label text-[#00FF41]">{status}</span>
+        <span className="material-symbols-outlined text-xs text-[#00FF41]">
+          {statusIcon}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function StatCard({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-surface-container-low p-4 border border-outline-variant/10 text-center">
+      <div className="text-[10px] font-label text-on-surface/40 uppercase mb-1">
+        {label}
+      </div>
+      <div className="text-xl font-headline text-primary-container tracking-tighter">
+        {value}
+      </div>
+    </div>
+  );
+}
