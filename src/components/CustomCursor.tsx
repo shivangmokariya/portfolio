@@ -18,16 +18,11 @@ export const CustomCursor = () => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
-
-    return window.matchMedia("(min-width: 1024px)").matches;
-  });
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    setIsDesktop(mediaQuery.matches);
 
     const handleMediaChange = (e: MediaQueryListEvent) => {
       setIsDesktop(e.matches);

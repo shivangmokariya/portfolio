@@ -52,16 +52,45 @@ export function ContactPageClient() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [packetId, setPacketId] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage(null);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = (await response.json()) as {
+        error?: string;
+        packetId?: string;
+      };
+
+      if (!response.ok || !result.packetId) {
+        throw new Error(result.error || "Unable to send message.");
+      }
+
+      setPacketId(result.packetId);
       setIsSubmitting(false);
-      setPacketId(`SHVJ-${crypto.randomUUID().slice(0, 4).toUpperCase()}`);
       setIsSuccess(true);
-    }, 1500);
+      setFormData({
+        name: "",
+        email: "",
+        description: "",
+      });
+    } catch (error) {
+      setIsSubmitting(false);
+      setErrorMessage(
+        error instanceof Error ? error.message : "Unable to send message.",
+      );
+    }
   };
 
   return (
@@ -99,6 +128,12 @@ export function ContactPageClient() {
               help you need with backend APIs, full-stack development, or AI and
               automation workflows.
             </p>
+
+            {errorMessage ? (
+              <div className="border border-[#ff6b6b]/30 bg-[#ff6b6b]/8 px-4 py-3 text-xs font-mono text-[#ff9c9c]">
+                {errorMessage}
+              </div>
+            ) : null}
 
             <div className="space-y-6">
               <div className="space-y-2 group">
@@ -194,6 +229,7 @@ export function ContactPageClient() {
               onClick={() => {
                 setPacketId(null);
                 setIsSuccess(false);
+                setErrorMessage(null);
               }}
               className="text-xs font-mono border-b border-[#00FF41]/40 text-[#00FF41]/80 hover:text-[#00FF41] transition-colors pt-4"
             >

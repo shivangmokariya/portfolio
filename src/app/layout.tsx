@@ -102,8 +102,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark overflow-x-hidden">
+    <html lang="en" className="dark overflow-x-hidden" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${spaceGrotesk.variable} ${inter.variable} bg-surface text-on-surface font-body antialiased overflow-x-hidden w-full max-w-full`}
       >
         <UIProvider>
