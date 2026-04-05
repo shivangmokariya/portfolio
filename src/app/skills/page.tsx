@@ -1,30 +1,42 @@
-import { Metadata } from "next";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { StructuredData } from "@/components/StructuredData";
+import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "KERNEL_ARCH // SKILLS",
+export const metadata = buildMetadata({
+  title: "Technical Skills",
   description:
-    "System configuration and skill modules. Backend, Frontend, Database, AI and Automation capabilities.",
-};
+    "Technical skills and engineering strengths across Node.js, NestJS, Express.js, TypeScript, MongoDB, AWS, frontend delivery, and AI automation.",
+  path: "/skills",
+  keywords: [
+    "Node.js skills",
+    "NestJS developer",
+    "TypeScript full-stack engineer",
+  ],
+});
 
 export default function SkillsPage() {
   return (
     <div className="p-6 md:p-10 bg-surface">
-      {/* Hero / BIOS Header */}
+      <StructuredData
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Skills", path: "/skills" },
+        ])}
+      />
+
+      <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Skills" }]} />
+
       <div className="mb-12 border-l-2 border-[#00FF41] pl-6 py-4">
         <h1 className="text-4xl md:text-6xl font-headline font-bold text-on-surface tracking-tighter uppercase mb-2">
-          SYSTEM_CONF <span className="text-primary-container">/SKILLS</span>
+          Technical <span className="text-primary-container">Skills</span>
         </h1>
         <p className="font-label text-sm text-[#00FF41]/60 tracking-widest">
-          INITIALIZING KERNEL MODULES... [DONE] <br />
-          CHECKING INTERFACE LAYER... [STABLE]
+          backend, frontend, database, cloud, and automation capabilities
         </p>
       </div>
 
-      {/* Bento Grid of Skills */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-        {/* Category: KERNEL_MODULES */}
         <div className="md:col-span-8 bg-surface-container border border-outline-variant/20 relative group">
-          {/* Terminal Header */}
           <div className="bg-surface-container-highest px-4 py-2 flex items-center justify-between">
             <span className="font-label text-[10px] tracking-widest text-on-surface/40 uppercase flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-error"></span>
@@ -39,18 +51,17 @@ export default function SkillsPage() {
           <div className="p-6">
             <h2 className="font-headline text-2xl text-primary-container mb-6 flex items-center gap-3">
               <span className="material-symbols-outlined">memory</span>{" "}
-              BACKEND_SYSTEM
+              Backend systems
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <SkillBar name="Node.js" percentage={92} />
-              <SkillBar name="Express" percentage={88} />
-              <SkillBar name="Nest.js" percentage={75} />
-              <SkillBar name="Typescript" percentage={95} />
+              <SkillBar name="Express.js" percentage={88} />
+              <SkillBar name="NestJS" percentage={75} />
+              <SkillBar name="TypeScript" percentage={95} />
             </div>
           </div>
         </div>
 
-        {/* Category: DATA_PERSISTENCE */}
         <div className="md:col-span-4 bg-surface-container-low border border-outline-variant/20 flex flex-col">
           <div className="bg-surface-container-highest px-4 py-2 flex items-center">
             <span className="font-label text-[10px] tracking-widest text-on-surface/40 uppercase">
@@ -67,7 +78,8 @@ export default function SkillsPage() {
                   PostgreSQL
                 </h3>
                 <p className="text-xs font-body text-on-surface/40 mt-1">
-                  Relational integrity &amp; complex queries.
+                  Relational integrity, reporting, and performance-oriented schema
+                  design.
                 </p>
                 <div className="mt-4 flex items-center gap-2">
                   <span className="text-[10px] px-2 py-0.5 bg-surface-container-high text-primary-container font-label uppercase">
@@ -91,7 +103,8 @@ export default function SkillsPage() {
                   MongoDB
                 </h3>
                 <p className="text-xs font-body text-on-surface/40 mt-1">
-                  Schema-less high speed data persistence.
+                  Flexible document storage for modern application workflows and
+                  automation pipelines.
                 </p>
                 <div className="mt-4 flex items-center gap-2">
                   <span className="text-[10px] px-2 py-0.5 bg-surface-container-high text-primary-container font-label uppercase">
@@ -112,7 +125,6 @@ export default function SkillsPage() {
           </div>
         </div>
 
-        {/* Category: INTERFACE_LAYER */}
         <div className="md:col-span-5 bg-surface-container border border-outline-variant/20">
           <div className="bg-surface-container-highest px-4 py-2">
             <span className="font-label text-[10px] tracking-widest text-on-surface/40 uppercase">
@@ -122,7 +134,7 @@ export default function SkillsPage() {
           <div className="p-6 space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="font-headline text-xl text-on-surface uppercase">
-                Frontend_Core
+                Frontend core
               </h2>
               <span className="text-xs font-label text-[#00FF41]">
                 ACTIVE_UI_THREAD
@@ -137,13 +149,13 @@ export default function SkillsPage() {
               />
               <InterfaceSkill
                 icon="palette"
-                name="TAILWIND_CSS"
-                percentage={98}
+                name="TAILWIND CSS"
+                percentage={95}
                 color="primary-container"
               />
               <InterfaceSkill
                 icon="animation"
-                name="FRAMER_MOTION"
+                name="ACCESSIBLE UI PATTERNS"
                 percentage={82}
                 color="secondary"
               />
@@ -151,7 +163,6 @@ export default function SkillsPage() {
           </div>
         </div>
 
-        {/* Category: AUTOMATION_CORE */}
         <div className="md:col-span-7 relative bg-surface-container/50 border border-[#00FF41]/10 backdrop-blur-md overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary-container/5 to-transparent pointer-events-none"></div>
           <div className="bg-surface-container-highest px-4 py-2 border-b border-[#00FF41]/10">
@@ -164,14 +175,14 @@ export default function SkillsPage() {
               <AutoCard
                 icon="robot_2"
                 title="AI Agents"
-                desc="Custom LLM orchestrations using LangChain & AutoGen frameworks."
+                desc="Custom LLM orchestrations and agent workflows for business automation and developer tooling."
                 status="OPTIMIZED"
                 statusIcon="check_circle"
               />
               <AutoCard
                 icon="hub"
                 title="MCP Servers"
-                desc="Building Model Context Protocol servers for enhanced LLM capabilities."
+                desc="Model Context Protocol servers that connect AI systems to local tools, context, and workflows."
                 status="STABLE"
                 statusIcon="verified_user"
               />
@@ -194,7 +205,6 @@ export default function SkillsPage() {
           </div>
         </div>
 
-        {/* Footer Stats Module */}
         <div className="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4">
           <StatCard label="uptime" value="99.98%" />
           <StatCard label="commits" value="4,821" />
@@ -244,9 +254,19 @@ function InterfaceSkill({
 }) {
   return (
     <div
-      className={`flex items-center gap-4 bg-surface-container-lowest p-3 border-l-2 border-${color}`}
+      className={`flex items-center gap-4 bg-surface-container-lowest p-3 border-l-2 ${
+        color === "primary-container"
+          ? "border-primary-container"
+          : "border-secondary"
+      }`}
     >
-      <span className={`material-symbols-outlined text-${color}`}>{icon}</span>
+      <span
+        className={`material-symbols-outlined ${
+          color === "primary-container" ? "text-primary-container" : "text-secondary"
+        }`}
+      >
+        {icon}
+      </span>
       <div className="flex-1">
         <div className="flex justify-between text-xs font-label">
           <span>{name}</span>
@@ -254,7 +274,9 @@ function InterfaceSkill({
         </div>
         <div className="h-1 w-full bg-surface-variant mt-2">
           <div
-            className={`h-full bg-${color}`}
+            className={`h-full ${
+              color === "primary-container" ? "bg-primary-container" : "bg-secondary"
+            }`}
             style={{ width: `${percentage}%` }}
           ></div>
         </div>

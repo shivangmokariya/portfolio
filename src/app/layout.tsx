@@ -8,6 +8,14 @@ import { Scanline } from "@/components/Scanline";
 import { MobileNav } from "@/components/MobileNav";
 import { CustomCursor } from "@/components/CustomCursor";
 import { UIProvider } from "@/context/UIContext";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_KEYWORDS,
+  GOOGLE_SITE_VERIFICATION,
+  SITE_NAME,
+  SITE_TITLE_SUFFIX,
+  SITE_URL,
+} from "@/lib/site";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -22,9 +30,61 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SHIVANG_MOKARIYA // KERNEL_PORTFOLIO",
-  description:
-    "Full-Stack Developer & AI Automation Engineer. Architecting digital environments with structural logic.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default:
+      "Shivang Mokariya | Node.js Developer, Full-Stack Developer & AI Automation Engineer",
+    template: `%s | ${SITE_TITLE_SUFFIX}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  keywords: DEFAULT_KEYWORDS,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  applicationName: SITE_NAME,
+  category: "technology",
+  alternates: {
+    canonical: SITE_URL,
+  },
+  manifest: "/manifest.webmanifest",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title:
+      "Shivang Mokariya | Node.js Developer, Full-Stack Developer & AI Automation Engineer",
+    description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Shivang Mokariya portfolio preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Shivang Mokariya | Node.js Developer, Full-Stack Developer & AI Automation Engineer",
+    description: DEFAULT_DESCRIPTION,
+    images: ["/twitter-image"],
+  },
+  verification: {
+    google: GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
@@ -34,12 +94,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} bg-surface text-on-surface font-body antialiased`}
       >

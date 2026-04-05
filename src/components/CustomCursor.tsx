@@ -18,12 +18,16 @@ export const CustomCursor = () => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    return window.matchMedia("(min-width: 1024px)").matches;
+  });
 
   useEffect(() => {
-    // Check if desktop (min-width: 1024px)
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
-    setIsDesktop(mediaQuery.matches);
 
     const handleMediaChange = (e: MediaQueryListEvent) => {
       setIsDesktop(e.matches);
@@ -36,10 +40,12 @@ export const CustomCursor = () => {
   useEffect(() => {
     if (!isDesktop) return;
 
+    const position = positionRef.current;
+
     const handleMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event;
-      positionRef.current.mouseX = clientX;
-      positionRef.current.mouseY = clientY;
+      position.mouseX = clientX;
+      position.mouseY = clientY;
       
       if (!isVisible) setIsVisible(true);
 
@@ -62,7 +68,7 @@ export const CustomCursor = () => {
     document.addEventListener("mouseenter", handleMouseEnter);
 
     const followMouse = () => {
-      positionRef.current.key = requestAnimationFrame(followMouse);
+      position.key = requestAnimationFrame(followMouse);
       const {
         mouseX,
         mouseY,
@@ -70,25 +76,25 @@ export const CustomCursor = () => {
         destinationY,
         distanceX,
         distanceY,
-      } = positionRef.current;
+      } = position;
 
       if (!destinationX || !destinationY) {
-        positionRef.current.destinationX = mouseX;
-        positionRef.current.destinationY = mouseY;
+        position.destinationX = mouseX;
+        position.destinationY = mouseY;
       } else {
-        positionRef.current.distanceX = (mouseX - destinationX) * 0.15;
-        positionRef.current.distanceY = (mouseY - destinationY) * 0.15;
+        position.distanceX = (mouseX - destinationX) * 0.15;
+        position.distanceY = (mouseY - destinationY) * 0.15;
 
         if (
-          Math.abs(positionRef.current.distanceX) +
-            Math.abs(positionRef.current.distanceY) <
+          Math.abs(position.distanceX) +
+            Math.abs(position.distanceY) <
           0.1
         ) {
-          positionRef.current.destinationX = mouseX;
-          positionRef.current.destinationY = mouseY;
+          position.destinationX = mouseX;
+          position.destinationY = mouseY;
         } else {
-          positionRef.current.destinationX += distanceX;
-          positionRef.current.destinationY += distanceY;
+          position.destinationX += distanceX;
+          position.destinationY += distanceY;
         }
       }
 
@@ -113,7 +119,7 @@ export const CustomCursor = () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
       document.removeEventListener("mouseenter", handleMouseEnter);
-      cancelAnimationFrame(positionRef.current.key);
+      cancelAnimationFrame(position.key);
     };
   }, [isDesktop, isVisible]);
 

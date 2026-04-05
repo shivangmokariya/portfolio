@@ -3,13 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useUI } from "@/context/UIContext";
-
-const navLinks = [
-  { href: "/", label: "ROOT" },
-  { href: "/work", label: "WORK" },
-  { href: "/skills", label: "SKILLS" },
-  { href: "/logs", label: "LOGS" },
-];
+import { PRIMARY_NAV_LINKS } from "@/lib/site";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -28,7 +22,7 @@ export function Navbar() {
         </div>
 
         <nav className="hidden md:flex gap-8 items-center font-headline tracking-tighter uppercase text-sm font-bold">
-          {navLinks.map((link) => {
+          {PRIMARY_NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link

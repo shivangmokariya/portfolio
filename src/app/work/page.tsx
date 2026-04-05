@@ -1,34 +1,58 @@
 import Image from "next/image";
-import { Metadata } from "next";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { StructuredData } from "@/components/StructuredData";
+import {
+  breadcrumbJsonLd,
+  buildMetadata,
+  workCollectionJsonLd,
+} from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "KERNEL_ARCH // WORK",
+export const metadata = buildMetadata({
+  title: "Projects and Work",
   description:
-    "Project showcase. Architected solutions specializing in system management, high-concurrency infrastructure, and automated engines.",
-};
+    "Browse selected work by Shivang Mokariya across backend APIs, vendor platforms, RBAC systems, billing engines, and automation-focused product engineering.",
+  path: "/work",
+  keywords: [
+    "software projects",
+    "Node.js portfolio projects",
+    "full-stack developer work",
+  ],
+});
 
 export default function WorkPage() {
   return (
     <div className="p-6 md:p-12">
-      {/* Header Section */}
+      <StructuredData
+        data={[
+          workCollectionJsonLd,
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/work" },
+          ]),
+        ]}
+      />
+
+      <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Work" }]} />
+
       <header className="mb-16 max-w-4xl">
         <div className="inline-block px-3 py-1 bg-surface-container-high text-[#00FF41] font-headline text-[10px] tracking-[0.3em] uppercase mb-6">
-          /home/sys_admin/projects
+          /home/shivang/projects
         </div>
         <h1 className="text-5xl md:text-7xl font-bold font-headline tracking-tighter text-on-surface mb-6 uppercase">
-          PROJ_RECAP_<span className="text-[#00FF41]">2024</span>
+          Selected <span className="text-[#00FF41]">Projects</span>
         </h1>
         <p className="text-on-surface-variant font-body text-lg leading-relaxed max-w-2xl">
-          A collection of architected solutions specializing in low-level system
-          management, high-concurrency infrastructure, and automated financial
-          engines.
+          A collection of software projects focused on backend APIs, admin
+          systems, security architecture, distributed billing, and automation-led
+          product delivery.
         </p>
       </header>
 
-      {/* Projects Grid (Bento Style) */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-20">
-        {/* Project 001: Vendor Mgmt */}
-        <div className="md:col-span-8 group relative bg-surface-container border border-outline-variant/20 hover:border-[#00FF41]/40 transition-all duration-500 overflow-hidden">
+        <article
+          id="vendor-management-platform"
+          className="md:col-span-8 group relative bg-surface-container border border-outline-variant/20 hover:border-[#00FF41]/40 transition-all duration-500 overflow-hidden"
+        >
           <div className="absolute top-0 left-0 w-full h-1 bg-[#00FF41]/10"></div>
           <div className="p-8">
             <div className="flex justify-between items-start mb-12">
@@ -37,7 +61,7 @@ export default function WorkPage() {
                   PROJECT_ID: 0x001
                 </div>
                 <h2 className="text-3xl font-bold font-headline text-on-surface tracking-tighter">
-                  0x001_VENDOR_MGMT
+                  Multi-vendor management platform
                 </h2>
               </div>
               <span className="material-symbols-outlined text-outline-variant text-4xl group-hover:text-[#00FF41] transition-colors">
@@ -46,14 +70,13 @@ export default function WorkPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="space-y-4">
-                <h4 className="text-[10px] text-on-surface/40 tracking-[0.2em] font-headline uppercase">
+                <h3 className="text-[10px] text-on-surface/40 tracking-[0.2em] font-headline uppercase">
                   Architectural_Scope
-                </h4>
+                </h3>
                 <p className="text-on-surface-variant font-body text-sm leading-relaxed">
-                  Engineering a centralized platform for multi-entity vendor
-                  control. Designed hierarchical organizational structures
-                  supporting nested parent-child vendor relationships with
-                  inheritance logic.
+                  A centralized platform for multi-entity vendor management with
+                  nested hierarchy support, operational controls, and reliable
+                  workflows for enterprise-scale teams.
                 </p>
               </div>
               <div className="bg-surface-container-lowest p-4 border-l border-[#00FF41]/30">
@@ -72,28 +95,30 @@ export default function WorkPage() {
             </div>
             <div className="flex flex-wrap gap-2">
               <span className="bg-surface-container-high px-3 py-1 text-[10px] font-headline text-on-surface/60">
-                #_GOLANG
+                #_NODEJS
               </span>
               <span className="bg-surface-container-high px-3 py-1 text-[10px] font-headline text-on-surface/60">
                 #_POSTGRESQL
               </span>
               <span className="bg-surface-container-high px-3 py-1 text-[10px] font-headline text-on-surface/60">
-                #_GRPC
+                #_RBAC
               </span>
             </div>
           </div>
-        </div>
+        </article>
 
-        {/* Project 002: RBAC */}
-        <div className="md:col-span-4 group bg-surface-container-low border border-outline-variant/20 hover:border-secondary/40 transition-all duration-500 flex flex-col">
+        <article
+          id="rbac-authentication-systems"
+          className="md:col-span-4 group bg-surface-container-low border border-outline-variant/20 hover:border-secondary/40 transition-all duration-500 flex flex-col"
+        >
           <div className="h-40 overflow-hidden grayscale group-hover:grayscale-0 transition-all">
             <Image
               className="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-all"
-              alt="Abstract cyber security data flow with neon green circuit board patterns and digital nodes representing access control"
+              alt="Abstract cyber security data flow representing role-based access control architecture"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuD76VnMU7X-LHaGLsfQ10fZQoysGGxXXRzQ1yRpZFxZqL3HojkSqnqvsY3PBAzlB6Yd5xn9mI07GhjdNOF7IpS1tu15EHwhdlkAMScTbJ39U6O2-rhUuFAqu0uZ_AZF-02qLPW_YHYcbHbtd5NZM5zKcyVt0DsY91H0JD9-JM9sIs3xbzZmVdU-hMGI6_FVc0wZo3iQnfV0vnVIVF3qN0xWjlQcqTL7W0SC8UnXae5GISNgOUaTtHQ_AvcfbO3YV9H7vhhdRK004s4"
               width={600}
               height={300}
-              unoptimized
+              sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
           <div className="p-6 flex-1 flex flex-col">
@@ -102,27 +127,29 @@ export default function WorkPage() {
                 SECURITY_CORE
               </div>
               <h2 className="text-xl font-bold font-headline text-on-surface tracking-tight">
-                0x002_RBAC_SYSTEMS
+                RBAC and authentication systems
               </h2>
             </div>
             <p className="text-on-surface-variant font-body text-xs leading-relaxed mb-6">
-              Secure role-based access control with granular permission mapping.
-              Implementation of JWT-based stateless auth and session management
-              for enterprise-scale deployments.
+              Secure role-based access control with granular permission mapping,
+              JWT-based authentication, and stateless session architecture for
+              enterprise-grade deployments.
             </p>
             <div className="mt-auto pt-4 border-t border-outline-variant/10 flex justify-between items-center">
               <span className="text-[10px] font-headline text-[#00FF41]">
                 PROTECTED
               </span>
-              <button className="material-symbols-outlined text-sm text-on-surface/40 hover:text-[#00FF41] transition-colors">
+              <span className="material-symbols-outlined text-sm text-on-surface/40">
                 arrow_right_alt
-              </button>
+              </span>
             </div>
           </div>
-        </div>
+        </article>
 
-        {/* Project 003: Billing Engine */}
-        <div className="md:col-span-6 group bg-surface-container border border-outline-variant/20 hover:border-[#00FF41]/40 transition-all duration-500">
+        <article
+          id="automated-billing-engine"
+          className="md:col-span-6 group bg-surface-container border border-outline-variant/20 hover:border-[#00FF41]/40 transition-all duration-500"
+        >
           <div className="p-1 bg-surface-container-highest flex items-center">
             <div className="terminal-header-dots ml-2"></div>
             <div className="text-[9px] text-on-surface/30 font-headline uppercase tracking-[0.2em]">
@@ -135,18 +162,18 @@ export default function WorkPage() {
                 FIN_CORE
               </div>
               <h2 className="text-2xl font-bold font-headline text-on-surface tracking-tighter">
-                0x003_BILLING_ENGINES
+                Automated billing engine
               </h2>
             </div>
             <p className="text-on-surface-variant font-body text-sm leading-relaxed mb-8">
-              High-precision automated billing cycles processing 10k+
-              invoices/sec. Built with idempotency at the core to ensure
-              zero-double-billing across distributed clusters.
+              A high-precision billing engine designed for idempotency,
+              throughput, and reliable invoice processing across distributed
+              environments.
             </p>
             <div className="flex items-center space-x-4">
               <div className="flex -space-x-2">
                 <div className="w-8 h-8 bg-[#2a2a2a] border border-[#3b4b37] flex items-center justify-center text-[10px] text-[#00FF41]">
-                  JS
+                  TS
                 </div>
                 <div className="w-8 h-8 bg-[#2a2a2a] border border-[#3b4b37] flex items-center justify-center text-[10px] text-[#00FF41]">
                   RD
@@ -160,22 +187,19 @@ export default function WorkPage() {
               </div>
             </div>
           </div>
-        </div>
+        </article>
 
-        {/* Sys Log Sidebar (Integrated in Grid) */}
-        <div className="md:col-span-6 bg-surface-container-lowest border border-outline-variant/20 p-8 font-headline relative overflow-hidden">
+        <aside className="md:col-span-6 bg-surface-container-lowest border border-outline-variant/20 p-8 font-headline relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-            <span className="material-symbols-outlined text-9xl">
-              analytics
-            </span>
+            <span className="material-symbols-outlined text-9xl">analytics</span>
           </div>
           <div className="flex items-center space-x-3 mb-8">
             <span className="material-symbols-outlined text-[#00FF41] animate-pulse">
               data_exploration
             </span>
-            <h3 className="text-xs font-bold tracking-[0.4em] text-on-surface/40 uppercase">
+            <h2 className="text-xs font-bold tracking-[0.4em] text-on-surface/40 uppercase">
               LIVE_SYSTEM_TELEMETRY
-            </h3>
+            </h2>
           </div>
           <div className="space-y-4 text-[11px]">
             <TelemetryRow label="ARCH_UPTIME" value="99.982%" color="text-[#00FF41]" />
@@ -191,19 +215,18 @@ export default function WorkPage() {
               OPTIMIZING_DATA_REPLICATION_LATENCY
             </div>
           </div>
-        </div>
+        </aside>
       </div>
 
-      {/* Experience / More Section (Asymmetric) */}
       <section className="mt-32 max-w-5xl">
         <div className="flex flex-col md:flex-row md:items-end md:space-x-12 mb-16">
           <div className="text-8xl font-bold font-headline text-outline-variant/10 select-none">
             SYSTEMS
           </div>
           <div className="pb-4">
-            <h3 className="text-2xl font-bold font-headline text-[#00FF41] uppercase tracking-tighter mb-4">
+            <h2 className="text-2xl font-bold font-headline text-[#00FF41] uppercase tracking-tighter mb-4">
               Core Competencies
-            </h3>
+            </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <CompetencyItem category="Distributed" tech="KUBERNETES" />
               <CompetencyItem category="Real-time" tech="WEBSOCKETS" />

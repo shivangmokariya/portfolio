@@ -4,24 +4,25 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const mobileLinks = [
-  { href: "/", label: "ROOT", icon: "home" },
+  { href: "/", label: "HOME", icon: "home" },
+  { href: "/about", label: "ABOUT", icon: "badge" },
   { href: "/work", label: "WORK", icon: "code" },
   { href: "/skills", label: "SKILLS", icon: "terminal" },
-  { href: "/logs", label: "LOGS", icon: "mail" },
+  { href: "/contact", label: "CONTACT", icon: "mail" },
 ];
 
 export function MobileNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#201f1f] flex justify-around items-center px-4 py-3">
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#201f1f] flex justify-around items-center px-3 py-3">
       {mobileLinks.map((link) => {
         const isActive = pathname === link.href;
         return (
           <Link
             key={link.href}
             href={link.href}
-            className={`flex flex-col items-center gap-1 ${
+            className={`flex flex-col items-center gap-1 min-w-0 ${
               isActive ? "text-[#00FF41]" : "text-[#e5e2e1] opacity-60"
             }`}
           >

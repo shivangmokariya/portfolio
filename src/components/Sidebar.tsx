@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SECONDARY_NAV_LINKS } from "@/lib/site";
 
 const sidebarLinks = [
-  { href: "/", label: "ROOT", icon: "home", alias: "~/home" },
-  { href: "/work", label: "WORK", icon: "code", alias: "~/projects" },
-  { href: "/skills", label: "SKILLS", icon: "terminal", alias: "~/bin" },
-  { href: "/logs", label: "LOGS", icon: "article", alias: "~/etc" },
+  { href: "/", icon: "home", alias: "~/home" },
+  { href: "/about", icon: "badge", alias: "~/about" },
+  { href: "/work", icon: "code", alias: "~/projects" },
+  { href: "/skills", icon: "terminal", alias: "~/skills" },
+  { href: "/contact", icon: "mail", alias: "~/contact" },
 ];
 
 export function Sidebar() {
@@ -20,7 +22,7 @@ export function Sidebar() {
           SYS_ROOT
         </div>
         <div className="text-[10px] text-[#e5e2e1]/40 tracking-widest font-headline">
-          v2.0.4-stable
+          portfolio.command-center
         </div>
       </div>
 
@@ -44,6 +46,29 @@ export function Sidebar() {
             </Link>
           );
         })}
+
+        <div className="px-6 pt-6">
+          <div className="text-[10px] text-[#e5e2e1]/30 tracking-[0.25em] font-headline uppercase mb-2">
+            Secondary
+          </div>
+          {SECONDARY_NAV_LINKS.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={
+                  isActive
+                    ? "flex items-center gap-3 py-2 text-[#00FF41] font-headline text-sm uppercase"
+                    : "flex items-center gap-3 py-2 text-[#e5e2e1]/40 hover:text-[#00FF41] font-headline text-sm uppercase transition-colors"
+                }
+              >
+                <span className="material-symbols-outlined text-sm">article</span>
+                <span>{link.label}</span>
+              </Link>
+            );
+          })}
+        </div>
       </nav>
 
       <div className="px-6 mt-auto">
