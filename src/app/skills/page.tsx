@@ -2,6 +2,98 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StructuredData } from "@/components/StructuredData";
 import { breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
+function Icon({ name, className }: { name: string; className?: string }) {
+  switch (name) {
+    case "more_horiz":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+          <circle cx="6" cy="12" r="1.7" />
+          <circle cx="12" cy="12" r="1.7" />
+          <circle cx="18" cy="12" r="1.7" />
+        </svg>
+      );
+    case "memory":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <rect x="6" y="7" width="12" height="10" rx="1.5" />
+          <path d="M9 10h6M9 14h6M4 10v4M20 10v4M9 4v3M15 4v3M9 17v3M15 17v3" strokeLinecap="round" />
+        </svg>
+      );
+    case "database":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <ellipse cx="12" cy="6.5" rx="6.5" ry="2.5" />
+          <path d="M5.5 6.5v5c0 1.4 2.9 2.5 6.5 2.5s6.5-1.1 6.5-2.5v-5" />
+          <path d="M5.5 11.5v5c0 1.4 2.9 2.5 6.5 2.5s6.5-1.1 6.5-2.5v-5" />
+        </svg>
+      );
+    case "storage":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M4.5 7.5h15v4h-15zM4.5 12.5h15v4h-15z" />
+          <path d="M7.5 9.5h.01M7.5 14.5h.01" strokeLinecap="round" />
+        </svg>
+      );
+    case "web":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <circle cx="12" cy="12" r="8" />
+          <path d="M4 12h16M12 4a13 13 0 0 1 0 16M12 4a13 13 0 0 0 0 16" strokeLinecap="round" />
+        </svg>
+      );
+    case "palette":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M12 4a8 8 0 1 0 0 16h1.2a2.3 2.3 0 0 0 0-4.6h-.4A2.8 2.8 0 0 1 10 12.6 8.6 8.6 0 0 0 12 4Z" />
+          <circle cx="7.8" cy="10" r="1" fill="currentColor" stroke="none" />
+          <circle cx="10.5" cy="7.6" r="1" fill="currentColor" stroke="none" />
+          <circle cx="14.2" cy="7.6" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case "animation":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <rect x="5" y="5" width="14" height="14" rx="2" />
+          <path d="m9 9 6 6M15 9l-6 6" strokeLinecap="round" />
+        </svg>
+      );
+    case "robot_2":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <rect x="6" y="8" width="12" height="9" rx="2" />
+          <path d="M12 4v4M9 12h.01M15 12h.01M9 17v2M15 17v2M4 12h2M18 12h2" strokeLinecap="round" />
+        </svg>
+      );
+    case "hub":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <circle cx="12" cy="12" r="2" />
+          <circle cx="5" cy="7" r="1.5" />
+          <circle cx="19" cy="7" r="1.5" />
+          <circle cx="7" cy="18" r="1.5" />
+          <circle cx="17" cy="18" r="1.5" />
+          <path d="M10.7 10.9 6.2 7.8M13.3 10.9l4.5-3.1M10.8 13l-2.9 3.3M13.2 13l2.9 3.3" strokeLinecap="round" />
+        </svg>
+      );
+    case "check_circle":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <circle cx="12" cy="12" r="8" />
+          <path d="m8.5 12.3 2.2 2.2 4.8-5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case "verified_user":
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M12 3.8 18.5 6v5.2c0 4-2.3 7-6.5 8.9-4.2-1.9-6.5-4.9-6.5-8.9V6L12 3.8Z" />
+          <path d="m9.5 11.8 1.6 1.6 3.4-3.7" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
+
 export const metadata = buildMetadata({
   title: "Technical Skills",
   description:
@@ -44,13 +136,11 @@ export default function SkillsPage() {
               <span className="w-2 h-2 rounded-full bg-[#00FF41]"></span>
               MODULE_ID: KERNEL_MODULES
             </span>
-            <span className="material-symbols-outlined text-xs text-on-surface/40">
-              more_horiz
-            </span>
+            <Icon name="more_horiz" className="h-4 w-4 text-on-surface/40" />
           </div>
           <div className="p-6">
             <h2 className="font-headline text-2xl text-primary-container mb-6 flex items-center gap-3">
-              <span className="material-symbols-outlined">memory</span>{" "}
+              <Icon name="memory" className="h-6 w-6" />{" "}
               Backend systems
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -70,9 +160,7 @@ export default function SkillsPage() {
           </div>
           <div className="p-6 flex-1 flex flex-col gap-6">
             <div className="flex items-start gap-4">
-              <span className="material-symbols-outlined text-primary-container">
-                database
-              </span>
+              <Icon name="database" className="h-6 w-6 text-primary-container" />
               <div>
                 <h3 className="font-headline text-lg uppercase text-on-surface">
                   PostgreSQL
@@ -95,9 +183,7 @@ export default function SkillsPage() {
             <div className="border-t border-outline-variant/10"></div>
 
             <div className="flex items-start gap-4">
-              <span className="material-symbols-outlined text-primary-container">
-                storage
-              </span>
+              <Icon name="storage" className="h-6 w-6 text-primary-container" />
               <div>
                 <h3 className="font-headline text-lg uppercase text-on-surface">
                   MongoDB
@@ -260,13 +346,12 @@ function InterfaceSkill({
           : "border-secondary"
       }`}
     >
-      <span
-        className={`material-symbols-outlined ${
+      <Icon
+        name={icon}
+        className={`h-6 w-6 ${
           color === "primary-container" ? "text-primary-container" : "text-secondary"
         }`}
-      >
-        {icon}
-      </span>
+      />
       <div className="flex-1">
         <div className="flex justify-between text-xs font-label">
           <span>{name}</span>
@@ -301,17 +386,13 @@ function AutoCard({
   return (
     <div className="p-4 bg-surface-container-highest/50 border border-outline-variant/20">
       <div className="flex items-center gap-3 mb-3">
-        <span className="material-symbols-outlined text-primary-container">
-          {icon}
-        </span>
+        <Icon name={icon} className="h-6 w-6 text-primary-container" />
         <h4 className="font-headline text-sm uppercase">{title}</h4>
       </div>
       <p className="text-xs text-on-surface/60 font-body mb-3">{desc}</p>
       <div className="flex justify-between items-center">
         <span className="text-[10px] font-label text-[#00FF41]">{status}</span>
-        <span className="material-symbols-outlined text-xs text-[#00FF41]">
-          {statusIcon}
-        </span>
+        <Icon name={statusIcon} className="h-4 w-4 text-[#00FF41]" />
       </div>
     </div>
   );

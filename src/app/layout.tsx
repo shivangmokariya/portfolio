@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
@@ -87,21 +87,30 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#131313",
+  colorScheme: "dark",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark overflow-x-hidden">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} bg-surface text-on-surface font-body antialiased`}
+        className={`${spaceGrotesk.variable} ${inter.variable} bg-surface text-on-surface font-body antialiased overflow-x-hidden w-full max-w-full`}
       >
         <UIProvider>
           <Navbar />
-          <div className="flex min-h-screen pt-14">
+          <div className="flex min-h-screen pt-14 w-full max-w-full overflow-x-hidden">
             <Sidebar />
-            <main className="flex-1 lg:ml-64">{children}</main>
+            <main className="flex-1 lg:ml-64 w-full max-w-full overflow-x-hidden">{children}</main>
           </div>
           <Footer />
           <MobileNav />

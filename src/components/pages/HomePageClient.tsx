@@ -6,16 +6,36 @@ import { TerminalWindow } from "@/components/TerminalWindow";
 import { useUI } from "@/context/UIContext";
 import profileImage from "../../../public/profile1.jpg";
 
+function SparkAdjustIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M12 3.5v3M12 17.5v3M20.5 12h-3M6.5 12h-3M17.3 6.7l-2 2M8.7 15.3l-2 2M17.3 17.3l-2-2M8.7 8.7l-2-2" strokeLinecap="round" />
+      <circle cx="12" cy="12" r="3.5" />
+    </svg>
+  );
+}
+
+function SlidersIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M5 6h14M5 12h14M5 18h14" strokeLinecap="round" />
+      <circle cx="9" cy="6" r="2" />
+      <circle cx="15" cy="12" r="2" />
+      <circle cx="11" cy="18" r="2" />
+    </svg>
+  );
+}
+
 export function HomePageClient() {
   const { isExpanded } = useUI();
 
   return (
-    <div className="pb-24 px-4 md:px-8 max-w-7xl mx-auto">
-      <section className="mt-8 mb-16">
+    <div className="w-full max-w-full pb-24 px-2 sm:px-4 md:px-8 mx-auto overflow-x-hidden">
+      <section className="mt-4 sm:mt-8 mb-16">
         <TerminalWindow title="shivang@kernel-v1: ~" useSquareDots>
-          <div className="p-6 md:p-10 grid md:grid-cols-12 gap-8 items-center md:overflow-hidden min-h-[500px]">
+          <div className="p-3 sm:p-6 md:p-10 grid md:grid-cols-12 gap-5 sm:gap-8 items-center md:overflow-hidden min-h-[500px]">
             <div
-              className={`md:col-span-4 relative group overflow-hidden border border-primary-container/20 transition-all duration-700 ease-in-out z-20 ${
+              className={`w-full md:col-span-4 relative group overflow-hidden border border-primary-container/20 transition-all duration-700 ease-in-out z-20 ${
                 isExpanded
                   ? "md:translate-x-[calc(200%+2rem)] md:translate-y-0 translate-y-[24rem]"
                   : "translate-x-0 translate-y-0"
@@ -36,7 +56,7 @@ export function HomePageClient() {
             </div>
 
             <div
-              className={`md:col-span-8 space-y-6 transition-all duration-700 ease-in-out z-10 ${
+              className={`w-full md:col-span-8 space-y-6 transition-all duration-700 ease-in-out z-10 ${
                 isExpanded
                   ? "md:-translate-x-[calc(50%+2rem)] md:translate-y-0 -translate-y-[22rem]"
                   : "translate-x-0 translate-y-0"
@@ -46,15 +66,15 @@ export function HomePageClient() {
                 <p className="font-mono text-primary-container text-sm">
                   guest@portfolio:~$ <span className="text-on-surface">whoami</span>
                 </p>
-                <h1 className="text-4xl md:text-6xl font-headline font-bold tracking-tighter text-on-surface">
+                <h1 className="text-4xl md:text-6xl font-headline font-bold tracking-tighter text-on-surface break-words">
                   Shivang Mokariya
                 </h1>
-                <p className="text-xl md:text-2xl font-headline text-primary-container opacity-90">
+                <p className="text-xl md:text-2xl font-headline text-primary-container opacity-90 break-words">
                   Node.js Developer | Full-Stack Developer | AI &amp; Automation
                   Engineer
                 </p>
               </div>
-              <p className="text-on-surface-variant max-w-2xl leading-relaxed">
+              <p className="text-on-surface-variant max-w-none md:max-w-2xl leading-relaxed break-words">
                 I build reliable backend APIs, full-stack web applications, and
                 automation systems that help teams move faster without sacrificing
                 maintainability. My focus is on TypeScript-first architecture,
@@ -66,9 +86,17 @@ export function HomePageClient() {
                   className="bg-primary-container text-on-primary-container px-6 py-2 font-headline font-bold text-sm flex items-center gap-2 group transition-transform active:scale-95"
                 >
                   View Project Work
-                  <span className="material-symbols-outlined text-sm ring-1 ring-[#00FF41]/20">
-                    arrow_forward
-                  </span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14" strokeLinecap="round" />
+                    <path d="m13 6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </Link>
                 <Link
                   href="/contact"
@@ -188,16 +216,16 @@ export function HomePageClient() {
         </div>
 
         <div className="md:col-span-3 grid md:grid-cols-2 gap-6">
-          <div className="bg-surface-container border border-outline-variant/20 p-8">
-            <div className="flex items-center gap-4 mb-8">
-              <span className="material-symbols-outlined text-primary-container text-4xl">
+          <div className="bg-surface-container border border-outline-variant/20 p-5 sm:p-8 overflow-hidden">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-8 min-w-0">
+              <span className="material-symbols-outlined text-primary-container text-3xl sm:text-4xl shrink-0">
                 developer_board
               </span>
-              <div>
-                <h2 className="font-headline font-bold text-xl uppercase tracking-tighter">
+              <div className="min-w-0">
+                <h2 className="font-headline font-bold text-lg sm:text-xl uppercase tracking-tighter break-words">
                   Architecture Specialization
                 </h2>
-                <p className="text-[10px] font-mono opacity-50">
+                <p className="text-[10px] font-mono opacity-50 break-words">
                   production-ready systems
                 </p>
               </div>
@@ -218,24 +246,22 @@ export function HomePageClient() {
             </ul>
           </div>
 
-          <div className="bg-surface-container-low border border-outline-variant/10 p-8 flex flex-col">
+          <div className="bg-surface-container-low border border-outline-variant/10 p-5 sm:p-8 flex flex-col overflow-hidden">
             <div className="mb-8">
               <div className="text-primary-container font-mono text-xs mb-2">
                 RUNNING: AGENT_SYSTEM_01
               </div>
-              <h2 className="font-headline font-bold text-3xl tracking-tighter">
+              <h2 className="font-headline font-bold text-2xl sm:text-3xl tracking-tighter break-words">
                 AI Automation
               </h2>
             </div>
             <div className="flex-grow space-y-6">
               <div className="p-5 border border-primary-container/20 bg-surface-container flex flex-col gap-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-headline font-bold text-xs uppercase tracking-widest">
+                <div className="flex items-start justify-between gap-3 min-w-0">
+                  <span className="font-headline font-bold text-xs uppercase tracking-widest break-all min-w-0">
                     n8n_agentic_flows
                   </span>
-                  <span className="material-symbols-outlined text-secondary text-lg">
-                    auto_fix
-                  </span>
+                  <SparkAdjustIcon className="h-5 w-5 text-secondary shrink-0" />
                 </div>
                 <p className="text-xs leading-relaxed opacity-80">
                   Self-correcting automation workflows that use LLMs for multi-step
@@ -243,15 +269,13 @@ export function HomePageClient() {
                 </p>
               </div>
               <div className="p-5 border border-outline-variant/20 bg-surface-container flex flex-col gap-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-headline font-bold text-xs uppercase tracking-widest">
+                <div className="flex items-start justify-between gap-3 min-w-0">
+                  <span className="font-headline font-bold text-xs uppercase tracking-widest break-all min-w-0">
                     mcp_server_dev
                   </span>
-                  <span className="material-symbols-outlined text-primary-container text-lg">
-                    settings_input_component
-                  </span>
+                  <SlidersIcon className="h-5 w-5 text-primary-container shrink-0" />
                 </div>
-                <p className="text-xs leading-relaxed opacity-80">
+                <p className="text-xs leading-relaxed opacity-80 break-words">
                   Model Context Protocol servers and tool integrations that connect
                   AI systems to real workflows.
                 </p>
@@ -354,11 +378,11 @@ function CredentialItem({
 
 function SpecItem({ title, desc }: { title: string; desc: string }) {
   return (
-    <li className="flex items-start gap-4 p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors">
+    <li className="flex items-start gap-3 sm:gap-4 p-4 bg-surface-container-low hover:bg-surface-container-high transition-colors min-w-0 overflow-hidden">
       <span className="text-primary-container font-mono text-lg">&gt;</span>
-      <div>
-        <h3 className="font-headline font-bold text-sm">{title}</h3>
-        <p className="text-xs text-on-surface-variant opacity-70">{desc}</p>
+      <div className="min-w-0">
+        <h3 className="font-headline font-bold text-sm break-words">{title}</h3>
+        <p className="text-xs text-on-surface-variant opacity-70 break-words">{desc}</p>
       </div>
     </li>
   );

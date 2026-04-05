@@ -64,6 +64,13 @@
 }
 
 /* Base Styles */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 body {
   background-color: #131313;
   color: #e5e2e1;

@@ -7,6 +7,37 @@ import {
   workCollectionJsonLd,
 } from "@/lib/seo";
 
+function FolderOpenIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M3.5 7.5h5l2 2H20.5v8a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3.5 10.5h17" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function AnalyticsIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="M5 19.5V10.5" strokeLinecap="round" />
+      <path d="M12 19.5v-15" strokeLinecap="round" />
+      <path d="M19 19.5v-7" strokeLinecap="round" />
+      <path d="M3.5 19.5h17" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function DataExplorationIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
+      <circle cx="10" cy="10" r="5.5" />
+      <path d="m14.5 14.5 5 5" strokeLinecap="round" />
+      <path d="M10 7.5v5" strokeLinecap="round" />
+      <path d="M7.5 10H10h2.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export const metadata = buildMetadata({
   title: "Projects and Work",
   description:
@@ -64,9 +95,7 @@ export default function WorkPage() {
                   Multi-vendor management platform
                 </h2>
               </div>
-              <span className="material-symbols-outlined text-outline-variant text-4xl group-hover:text-[#00FF41] transition-colors">
-                folder_open
-              </span>
+              <FolderOpenIcon className="h-10 w-10 text-outline-variant group-hover:text-[#00FF41] transition-colors" />
             </div>
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div className="space-y-4">
@@ -139,9 +168,17 @@ export default function WorkPage() {
               <span className="text-[10px] font-headline text-[#00FF41]">
                 PROTECTED
               </span>
-              <span className="material-symbols-outlined text-sm text-on-surface/40">
-                arrow_right_alt
-              </span>
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="h-4 w-4 text-on-surface/40"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M4 12h16" strokeLinecap="round" />
+                <path d="m14 6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </div>
           </div>
         </article>
@@ -191,12 +228,10 @@ export default function WorkPage() {
 
         <aside className="md:col-span-6 bg-surface-container-lowest border border-outline-variant/20 p-8 font-headline relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-            <span className="material-symbols-outlined text-9xl">analytics</span>
+            <AnalyticsIcon className="h-24 w-24" />
           </div>
           <div className="flex items-center space-x-3 mb-8">
-            <span className="material-symbols-outlined text-[#00FF41] animate-pulse">
-              data_exploration
-            </span>
+            <DataExplorationIcon className="h-5 w-5 text-[#00FF41] animate-pulse" />
             <h2 className="text-xs font-bold tracking-[0.4em] text-on-surface/40 uppercase">
               LIVE_SYSTEM_TELEMETRY
             </h2>

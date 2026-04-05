@@ -5,6 +5,44 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { TerminalWindow } from "@/components/TerminalWindow";
 
+function ArrowLeftIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M20 12H4" strokeLinecap="round" />
+      <path d="m10 6-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SendIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M3 11.5 21 3l-8.5 18-1.9-7.6L3 11.5Z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10.6 13.4 21 3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function CheckIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="12" r="9" />
+      <path d="m8.5 12.5 2.4 2.4 4.6-5.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SyncIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M20 5v5h-5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M4 19v-5h5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6.8 9A8 8 0 0 1 20 10" strokeLinecap="round" />
+      <path d="M17.2 15A8 8 0 0 1 4 14" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function ContactPageClient() {
   const [formData, setFormData] = useState({
     name: "",
@@ -38,10 +76,10 @@ export function ContactPageClient() {
       <div className="mb-8 flex items-center gap-3">
         <Link
           href="/"
-          className="material-symbols-outlined text-[#00FF41] hover:bg-[#00FF41]/10 p-2 border border-[#00FF41]/20 transition-all active:scale-95"
+          className="text-[#00FF41] hover:bg-[#00FF41]/10 p-2 border border-[#00FF41]/20 transition-all active:scale-95"
           aria-label="Back to home page"
         >
-          arrow_back
+          <ArrowLeftIcon className="h-5 w-5" />
         </Link>
         <div>
           <h1 className="text-2xl font-headline font-bold tracking-tighter text-[#E5E2E1]">
@@ -125,17 +163,13 @@ export function ContactPageClient() {
               >
                 {isSubmitting ? (
                   <>
-                    <span className="material-symbols-outlined animate-spin">
-                      sync
-                    </span>
+                    <SyncIcon className="h-4 w-4 animate-spin" />
                     SENDING_PACKET...
                   </>
                 ) : (
                   <>
                     TRANSMIT_DATA
-                    <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
-                      send
-                    </span>
+                    <SendIcon className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
               </button>
@@ -144,9 +178,7 @@ export function ContactPageClient() {
         ) : (
           <div className="p-10 flex flex-col items-center justify-center text-center space-y-6 min-h-[400px]">
             <div className="w-16 h-16 rounded-full border-2 border-[#00FF41] flex items-center justify-center animate-pulse">
-              <span className="material-symbols-outlined text-[#00FF41] text-3xl">
-                check
-              </span>
+              <CheckIcon className="h-8 w-8 text-[#00FF41]" />
             </div>
             <div className="space-y-2">
               <h2 className="text-2xl font-headline font-bold text-[#00FF41]">

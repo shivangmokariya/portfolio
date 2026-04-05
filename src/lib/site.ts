@@ -64,3 +64,18 @@ export const PRIMARY_NAV_LINKS = [
 ];
 
 export const SECONDARY_NAV_LINKS = [{ href: "/logs", label: "LOGS" }];
+
+export const SOCIAL_LINKS = [
+  {
+    href: "https://github.com/shivangmokariya",
+    label: "GitHub",
+  },
+  {
+    href: "https://www.linkedin.com/in/shivang-mokariya/",
+    label: "LinkedIn",
+  },
+  {
+    href: "https://www.instagram.com/shivang_mokariya/",
+    label: "Instagram",
+  },
+] as const;

@@ -8,7 +8,7 @@ export function Footer() {
         <div className="flex items-center gap-4 md:mb-0">
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-primary-container rounded-full animate-pulse"></span>
-            Shivang Mokariya // Available for projects
+            Shivang Mokariya
           </span>
           <span className="hidden md:inline text-white/20">|</span>
           <span className="hidden md:inline">Node.js • Full-Stack • AI Automation</span>
