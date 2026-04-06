@@ -14,7 +14,7 @@ export function Footer() {
           <span className="hidden md:inline">Node.js • Full-Stack • AI Automation</span>
         </div>
         <div className="flex flex-wrap justify-center gap-6">
-          {PRIMARY_NAV_LINKS.map((link) => (
+          {/* {PRIMARY_NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -22,8 +22,8 @@ export function Footer() {
             >
               {link.label}
             </Link>
-          ))}
-          {SECONDARY_NAV_LINKS.map((link) => (
+          ))} */}
+          {/* {SECONDARY_NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -31,7 +31,7 @@ export function Footer() {
             >
               {link.label}
             </Link>
-          ))}
+          ))} */}
         </div>
       </div>
     </footer>
