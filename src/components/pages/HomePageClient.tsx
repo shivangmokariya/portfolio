@@ -26,6 +26,24 @@ function SlidersIcon({ className }: { className?: string }) {
   );
 }
 
+function DeveloperBoardIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
+      <rect x="3.5" y="5" width="17" height="11.5" rx="1.5" />
+      <path d="M8 19h8" strokeLinecap="round" />
+      <path d="M12 16.5V19" strokeLinecap="round" />
+      <path d="M7.5 9h3M7.5 12h5M14.5 9l2 2-2 2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function HomePageClient() {
   const { isExpanded } = useUI();
 
@@ -37,8 +55,8 @@ export function HomePageClient() {
             <div
               className={`w-full md:col-span-4 relative group overflow-hidden border border-primary-container/20 transition-all duration-700 ease-in-out z-20 ${
                 isExpanded
-                  ? "md:translate-x-[calc(200%+2rem)] md:translate-y-0 translate-y-[24rem]"
-                  : "translate-x-0 translate-y-0"
+                  ? "order-2 md:order-none md:translate-x-[calc(200%+2rem)] md:translate-y-0"
+                  : "order-1 md:order-none translate-x-0 translate-y-0"
               }`}
             >
               <div className="absolute -inset-2 border border-primary-container/20 translate-x-2 translate-y-2 pointer-events-none z-10 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
@@ -58,8 +76,8 @@ export function HomePageClient() {
             <div
               className={`w-full md:col-span-8 space-y-6 transition-all duration-700 ease-in-out z-10 ${
                 isExpanded
-                  ? "md:-translate-x-[calc(50%+2rem)] md:translate-y-0 -translate-y-[22rem]"
-                  : "translate-x-0 translate-y-0"
+                  ? "order-1 md:order-none md:-translate-x-[calc(50%+2rem)] md:translate-y-0"
+                  : "order-2 md:order-none translate-x-0 translate-y-0"
               }`}
             >
               <div className="space-y-2">
@@ -218,9 +236,7 @@ export function HomePageClient() {
         <div className="md:col-span-3 grid md:grid-cols-2 gap-6">
           <div className="bg-surface-container border border-outline-variant/20 p-5 sm:p-8 overflow-hidden">
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-8 min-w-0">
-              <span className="material-symbols-outlined text-primary-container text-3xl sm:text-4xl shrink-0">
-                developer_board
-              </span>
+              <DeveloperBoardIcon className="h-9 w-9 text-primary-container sm:h-11 sm:w-11 shrink-0" />
               <div className="min-w-0">
                 <h2 className="font-headline font-bold text-lg sm:text-xl uppercase tracking-tighter break-words">
                   Architecture Specialization
