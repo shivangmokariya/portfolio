@@ -11,6 +11,13 @@ export const DEFAULT_DESCRIPTION =
 
 export const DEFAULT_KEYWORDS = [
   "Shivang Mokariya",
+  "Shivang Node.js",
+  "shivang nodejs",
+  "Shivang nodejs",
+  "Shivang Node",
+  "Shivang Express",
+  "Shivang Next",
+  "Shivang Developer",
   "Node.js Developer",
   "Full-Stack Developer",
   "AI Automation Engineer",
