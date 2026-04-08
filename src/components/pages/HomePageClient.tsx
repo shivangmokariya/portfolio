@@ -2,9 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { TerminalWindow } from "@/components/TerminalWindow";
 import { useUI } from "@/context/UIContext";
 import profileImage from "../../../public/profile1.jpg";
+
+const desktopBreakpointQuery = "(min-width: 768px)";
 
 function SparkAdjustIcon({ className }: { className?: string }) {
   return (
@@ -46,18 +49,97 @@ function DeveloperBoardIcon({ className }: { className?: string }) {
 
 export function HomePageClient() {
   const { isExpanded } = useUI();
+  const heroGridRef = useRef<HTMLDivElement>(null);
+  const imagePanelRef = useRef<HTMLDivElement>(null);
+  const contentPanelRef = useRef<HTMLDivElement>(null);
+  const [swapOffsets, setSwapOffsets] = useState({
+    imageX: 0,
+    imageY: 0,
+    contentX: 0,
+    contentY: 0,
+  });
+  const isDesktop = useSyncExternalStore(
+    (onStoreChange) => {
+      if (typeof window === "undefined") {
+        return () => {};
+      }
+
+      const mediaQuery = window.matchMedia(desktopBreakpointQuery);
+      mediaQuery.addEventListener("change", onStoreChange);
+
+      return () => mediaQuery.removeEventListener("change", onStoreChange);
+    },
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia(desktopBreakpointQuery).matches,
+    () => false
+  );
+
+  useEffect(() => {
+    const heroGrid = heroGridRef.current;
+    const imagePanel = imagePanelRef.current;
+    const contentPanel = contentPanelRef.current;
+
+    if (!heroGrid || !imagePanel || !contentPanel) {
+      return;
+    }
+
+    const updateSwapOffsets = () => {
+      const imageRect = imagePanel.getBoundingClientRect();
+      const contentRect = contentPanel.getBoundingClientRect();
+      const computedGridStyles = window.getComputedStyle(heroGrid);
+      const rowGap = Number.parseFloat(computedGridStyles.rowGap || "0");
+      const columnGap = Number.parseFloat(computedGridStyles.columnGap || "0");
+
+      setSwapOffsets({
+        imageX: contentRect.width + columnGap,
+        imageY: contentRect.height + rowGap,
+        contentX: imageRect.width + columnGap,
+        contentY: imageRect.height + rowGap,
+      });
+    };
+
+    updateSwapOffsets();
+
+    const resizeObserver = new ResizeObserver(updateSwapOffsets);
+    resizeObserver.observe(heroGrid);
+    resizeObserver.observe(imagePanel);
+    resizeObserver.observe(contentPanel);
+
+    window.addEventListener("resize", updateSwapOffsets);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateSwapOffsets);
+    };
+  }, []);
+
+  const imageTransform = isExpanded
+    ? isDesktop
+      ? `translate3d(${swapOffsets.imageX}px, 0, 0)`
+      : `translate3d(0, ${swapOffsets.imageY}px, 0)`
+    : "translate3d(0, 0, 0)";
+
+  const contentTransform = isExpanded
+    ? isDesktop
+      ? `translate3d(-${swapOffsets.contentX}px, 0, 0)`
+      : `translate3d(0, -${swapOffsets.contentY}px, 0)`
+    : "translate3d(0, 0, 0)";
 
   return (
     <div className="w-full max-w-full pb-24 px-2 sm:px-4 md:px-8 mx-auto overflow-x-hidden">
       <section className="mt-4 sm:mt-8 mb-16">
         <TerminalWindow title="shivang@kernel-v1: ~" useSquareDots>
-          <div className="p-3 sm:p-6 md:p-10 grid md:grid-cols-12 gap-5 sm:gap-8 items-center md:overflow-hidden min-h-[500px]">
+          <div
+            ref={heroGridRef}
+            className="p-3 sm:p-6 md:p-10 grid md:grid-cols-12 gap-5 sm:gap-8 items-center md:overflow-hidden min-h-[500px]"
+          >
             <div
-              className={`w-full md:col-span-4 relative group overflow-hidden border border-primary-container/20 transition-all duration-700 ease-in-out z-20 ${
-                isExpanded
-                  ? "order-2 md:order-none md:translate-x-[calc(200%+2rem)] md:translate-y-0"
-                  : "order-1 md:order-none translate-x-0 translate-y-0"
+              ref={imagePanelRef}
+              className={`w-full md:col-span-4 relative group overflow-hidden border border-primary-container/20 z-20 will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                isExpanded ? "md:z-30" : ""
               }`}
+              style={{ transform: imageTransform }}
             >
               <div className="absolute -inset-2 border border-primary-container/20 translate-x-2 translate-y-2 pointer-events-none z-10 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
               <Image
@@ -74,11 +156,11 @@ export function HomePageClient() {
             </div>
 
             <div
-              className={`w-full md:col-span-8 space-y-6 transition-all duration-700 ease-in-out z-10 ${
-                isExpanded
-                  ? "order-1 md:order-none md:-translate-x-[calc(50%+2rem)] md:translate-y-0"
-                  : "order-2 md:order-none translate-x-0 translate-y-0"
+              ref={contentPanelRef}
+              className={`w-full md:col-span-8 space-y-6 z-10 will-change-transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                isExpanded ? "z-30" : ""
               }`}
+              style={{ transform: contentTransform }}
             >
               <div className="space-y-2">
                 <p className="font-mono text-primary-container text-sm">
